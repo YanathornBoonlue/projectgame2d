@@ -1,0 +1,252 @@
+[gd_scene load_steps=16 format=4 uid="uid://cjanwm3sy2x37"]
+
+[ext_resource type="PackedScene" uid="uid://cyti38f0lagf2" path="res://Scenes/Prefabs/LevelFinishDoor.tscn" id="1_oqkjg"]
+[ext_resource type="PackedScene" uid="uid://bjb3dx2x4bocm" path="res://Scenes/Levels/Level_02.tscn" id="2_0ac5u"]
+[ext_resource type="PackedScene" uid="uid://w7m6tehvvy3g" path="res://Scenes/Prefabs/player.tscn" id="2_pay8t"]
+[ext_resource type="PackedScene" uid="uid://bfmh3fm2de78o" path="res://Scenes/Prefabs/Coin.tscn" id="3_rrh80"]
+[ext_resource type="Script" uid="uid://b3otwjimxlk6l" path="res://Scripts/GameManager.gd" id="4_vgfkr"]
+[ext_resource type="Texture2D" uid="uid://jaegp53ccc7w" path="res://Assets/Spritesheet/platformPack_tilesheet.png" id="5_wqbaa"]
+[ext_resource type="Script" uid="uid://b4cw5w8ycec5t" path="res://Scripts/GameUI.gd" id="6_66mfc"]
+[ext_resource type="Texture2D" uid="uid://clreg520jah1j" path="res://Assets/platformPack_item008.png" id="7_j7jun"]
+[ext_resource type="FontFile" uid="uid://qgc4vi5osk7v" path="res://Assets/Fonts/Star Choco.ttf" id="8_gwcy2"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_gs0qk"]
+texture = ExtResource("5_wqbaa")
+texture_region_size = Vector2i(64, 64)
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, 32, 32, 32, 32, -32, -32, -32)
+0:2/0 = 0
+0:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 16, -32, 16)
+2:4/0 = 0
+2:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 0, -32, 0)
+4:0/0 = 0
+4:1/0 = 0
+5:0/0 = 0
+5:1/0 = 0
+2:5/0 = 0
+3:0/0 = 0
+3:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
+
+[sub_resource type="TileSet" id="TileSet_ywwrl"]
+tile_size = Vector2i(64, 64)
+physics_layer_0/collision_layer = 1
+sources/0 = SubResource("TileSetAtlasSource_gs0qk")
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_rndpx"]
+texture = ExtResource("5_wqbaa")
+texture_region_size = Vector2i(64, 64)
+0:5/0 = 0
+0:5/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, 0, 16, 0, 32, 32, -32, 32)
+
+[sub_resource type="TileSet" id="TileSet_2fcbi"]
+tile_size = Vector2i(64, 64)
+physics_layer_0/collision_layer = 1
+sources/0 = SubResource("TileSetAtlasSource_rndpx")
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_3cagf"]
+texture = ExtResource("5_wqbaa")
+texture_region_size = Vector2i(64, 64)
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, -32, 32, 32, 32, 32, -32)
+1:0/0 = 0
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, -32, 32, 32, 32, 32, -32)
+2:0/0 = 0
+2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, -32, 32, 32, 32, 32, -32)
+3:0/0 = 0
+3:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, -32, 32, 32, 32, 32, -32)
+4:0/0 = 0
+4:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -27.0947, -32, 32, 32, 32, 32, -27.0947, 22.0145, -32, 7.33816, -32, -5.64474, -24.2724, -22.579, -23.7079)
+5:0/0 = 0
+5:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -27.0947, -32, 32, 32, 32, 32, -27.0947, 22.0145, -32, 7.33816, -32, -5.64474, -24.2724, -22.579, -23.7079)
+6:0/0 = 0
+6:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, -32, 32, 32, 32, 32, -32)
+7:0/0 = 0
+7:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, -32, 32, 32, 32, 32, -32)
+0:1/0 = 0
+0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, -32, 32, 32, 32, 32, -32)
+1:1/0 = 0
+1:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, -32, 32, 32, 32, 32, -32)
+2:1/0 = 0
+2:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, -32, 32, 32, 32, 32, -32)
+3:1/0 = 0
+3:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, -32, 32, 32, 32, 32, -32)
+4:1/0 = 0
+4:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, -32, 32, 32, 32, 32, -32)
+5:1/0 = 0
+5:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, -32, 32, 32, 32, 32, -32)
+6:1/0 = 0
+6:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, -32, 32, 32, 32, 32, -32)
+7:1/0 = 0
+7:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, -32, 32, 32, 32, 32, -32)
+0:2/0 = 0
+0:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 7.90263, 20.3211, -0.564476, 11.2895, 7.90263, -0.564476, 0, -12.4184, 7.33816, -20.8855, -0.564476, -32, 8.46711)
+1:2/0 = 0
+1:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -0.564476, -32, -32, 32, -32, 32, 3.95132, 20.8855, 0, 6.77369, 0, -6.77369, 5.64474, -22.0145, 6.20921)
+2:2/0 = 0
+2:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 9.03158, 20.8855, 0.564472, 11.8539, 6.77369, -1.69342, 0.564472, -11.854, 9.03158, -20.8855, 1.69342, -32, 7.33816)
+3:2/0 = 0
+3:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, -32, 32, 32, 32, 32, -32)
+4:2/0 = 0
+4:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, -32, 32, 32, 32, 32, -32)
+0:3/0 = 0
+0:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 8.46711, 20.3211, 1.12895, 11.2895, 9.03158, 0, 2.2579, -9.59606, 6.77369, -21.45, 1.12895, -32, 8.46711)
+1:3/0 = 0
+1:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 9.03158, 20.8855, 0.564472, 11.8539, 6.77369, -1.69342, 0.564472, -11.854, 9.03158, -20.8855, 1.69342, -32, 7.33816)
+2:3/0 = 0
+2:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 9.03158, 20.8855, 0.564472, 11.8539, 6.77369, -1.69342, 0.564472, -11.854, 9.03158, -20.8855, 1.69342, -32, 7.33816)
+3:3/0 = 0
+3:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, -32, 32, 32, 32, 32, -32)
+4:3/0 = 0
+4:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, -32, 32, 32, 32, 32, -32)
+0:4/0 = 0
+1:4/0 = 0
+1:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, -32, 32, 32, 32, 32, -32)
+2:4/0 = 0
+2:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 1.12895, -32, 1.12895)
+3:4/0 = 0
+3:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, -32, 32, 32, 32, 32, -32)
+4:4/0 = 0
+4:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, -32, 32, 32, 32, 32, -32)
+0:5/0 = 0
+1:5/0 = 0
+1:5/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, -32, 32, 32, 32, 32, -32)
+2:5/0 = 0
+3:5/0 = 0
+3:5/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, -32, 32, 32, 32, 32, -32)
+4:5/0 = 0
+4:5/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, -32, 32, 32, 32, 32, -32)
+
+[sub_resource type="TileSet" id="TileSet_5vjlm"]
+tile_size = Vector2i(64, 64)
+physics_layer_0/collision_layer = 1
+sources/2 = SubResource("TileSetAtlasSource_3cagf")
+
+[node name="Level_01" type="Node2D"]
+
+[node name="LevelFinishDoor" parent="." instance=ExtResource("1_oqkjg")]
+z_index = 1
+position = Vector2(1304, 400)
+next_scene = ExtResource("2_0ac5u")
+
+[node name="Player" parent="." instance=ExtResource("2_pay8t")]
+z_index = 1
+position = Vector2(150, 318)
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+position = Vector2(16, 36)
+limit_left = 0
+limit_bottom = 705
+limit_smoothed = true
+position_smoothing_enabled = true
+drag_horizontal_enabled = true
+drag_vertical_enabled = true
+drag_left_margin = 0.4
+drag_top_margin = 0.4
+drag_right_margin = 0.4
+drag_bottom_margin = 0.4
+editor_draw_limits = true
+editor_draw_drag_margin = true
+
+[node name="Coins" type="Node2D" parent="."]
+
+[node name="Coin" parent="Coins" instance=ExtResource("3_rrh80")]
+position = Vector2(576, 406)
+
+[node name="Coin2" parent="Coins" instance=ExtResource("3_rrh80")]
+position = Vector2(712, 353)
+
+[node name="Coin3" parent="Coins" instance=ExtResource("3_rrh80")]
+position = Vector2(844, 408)
+
+[node name="Level" type="Node2D" parent="."]
+
+[node name="Ground" type="TileMap" parent="Level" groups=["Ground"]]
+tile_set = SubResource("TileSet_ywwrl")
+format = 2
+layer_0/tile_data = PackedInt32Array(458752, 262144, 1, 458753, 262144, 1, 458754, 262144, 1, 458755, 262144, 1, 458756, 262144, 1, 524288, 262144, 1, 589824, 262144, 1, 589825, 262144, 1, 589826, 262144, 1, 589827, 262144, 1, 589828, 262144, 1, 655364, 262144, 1, 655363, 262144, 1, 655362, 262144, 1, 655361, 262144, 1, 655360, 262144, 1, 524289, 262144, 1, 524290, 262144, 1, 524291, 262144, 1, 524292, 262144, 1, 524301, 327680, 1, 589837, 327680, 1, 655373, 327680, 1, 524302, 327680, 1, 589838, 327680, 1, 655374, 327680, 1, 524303, 327680, 1, 589839, 327680, 1, 655375, 327680, 1, 458768, 327680, 1, 524304, 327680, 1, 589840, 327680, 1, 655376, 327680, 1, 458769, 327680, 1, 524305, 327680, 1, 589841, 327680, 1, 655377, 327680, 1, 458770, 327680, 1, 524306, 327680, 1, 589842, 327680, 1, 655378, 327680, 1, 458771, 327680, 1, 524307, 327680, 1, 589843, 327680, 1, 655379, 327680, 1, 458772, 327680, 1, 524308, 327680, 1, 589844, 327680, 1, 655380, 327680, 1, 458773, 327680, 1, 524309, 327680, 1, 589845, 327680, 1, 655381, 327680, 1, 655370, 262144, 1, 655371, 262144, 1, 655372, 262144, 1, 655365, 262144, 1, 655366, 262144, 1, 655367, 262144, 1, 655368, 262144, 1, 655369, 262144, 1, 458757, 131072, 4, 458760, 131072, 4, 458761, 131072, 4, 458764, 131072, 4, 720895, 262144, 1, 655359, 262144, 1, 589823, 262144, 1, 524287, 262144, 1, 458751, 262144, 1, 393215, 262144, 1, 327679, 262144, 1, 262143, 262144, 1, 196607, 262144, 1, 131071, 262144, 1, 65535, 262144, 1, 458765, 327680, 1, 458766, 327680, 1, 458767, 327680, 1)
+
+[node name="Traps" type="TileMap" parent="Level" groups=["Traps"]]
+tile_set = SubResource("TileSet_2fcbi")
+format = 2
+layer_0/tile_data = PackedInt32Array(589836, 0, 5, 589835, 0, 5, 589834, 0, 5, 589833, 0, 5, 589832, 0, 5, 589831, 0, 5, 589830, 0, 5, 589829, 0, 5)
+
+[node name="SpawnPoint" type="Marker2D" parent="Level"]
+unique_name_in_owner = true
+position = Vector2(174, 383)
+
+[node name="TileMapLayer" type="TileMapLayer" parent="Level"]
+tile_map_data = PackedByteArray("AAAAAAcAAgAEAAEAAAACAAcAAgAEAAEAAAAEAAcAAgAEAAEAAAADAAcAAgAEAAEAAAABAAcAAgAEAAEAAAD//wcAAgAEAAEAAAD//wgAAgAEAAEAAAD//wAAAgAEAAEAAAD//wEAAgAEAAEAAAD//wIAAgAEAAEAAAD//wMAAgAEAAEAAAD//wQAAgAEAAEAAAD//wUAAgAEAAEAAAD//wYAAgAEAAEAAAD//wkAAgAEAAEAAAD//woAAgAEAAEAAAAAAAoAAgAEAAEAAAABAAoAAgAEAAEAAAACAAoAAgAEAAEAAAADAAoAAgAEAAEAAAAEAAoAAgAEAAEAAAAFAAoAAgAEAAEAAAAGAAoAAgAEAAEAAAAHAAoAAgAEAAEAAAAIAAoAAgAEAAEAAAAJAAoAAgAEAAEAAAAKAAoAAgAEAAEAAAALAAoAAgAEAAEAAAAMAAoAAgAEAAEAAAAEAAkAAgAEAAEAAAADAAkAAgAEAAEAAAACAAkAAgAEAAEAAAABAAkAAgAEAAEAAAAAAAkAAgAEAAEAAAAAAAgAAgAEAAEAAAABAAgAAgAEAAEAAAACAAgAAgAEAAEAAAADAAgAAgAEAAEAAAAEAAgAAgAEAAEAAAAFAAcAAgACAAQAAAAIAAcAAgACAAQAAAAJAAcAAgACAAQAAAAMAAcAAgACAAQAAAANAAcAAgAFAAEAAAAOAAcAAgAFAAEAAAAPAAcAAgAFAAEAAAAQAAcAAgAFAAEAAAARAAcAAgAFAAEAAAASAAcAAgAFAAEAAAATAAcAAgAFAAEAAAAUAAcAAgAFAAEAAAAVAAcAAgAFAAEAAAAVAAgAAgAFAAEAAAAUAAgAAgAFAAEAAAATAAgAAgAFAAEAAAASAAgAAgAFAAEAAAARAAgAAgAFAAEAAAAQAAgAAgAFAAEAAAAPAAgAAgAFAAEAAAAOAAgAAgAFAAEAAAANAAgAAgAFAAEAAAANAAkAAgAFAAEAAAAOAAkAAgAFAAEAAAAPAAkAAgAFAAEAAAAQAAkAAgAFAAEAAAARAAkAAgAFAAEAAAASAAkAAgAFAAEAAAATAAkAAgAFAAEAAAAUAAkAAgAFAAEAAAAVAAkAAgAFAAEAAAAVAAoAAgAFAAEAAAAUAAoAAgAFAAEAAAATAAoAAgAFAAEAAAASAAoAAgAFAAEAAAARAAoAAgAFAAEAAAAQAAoAAgAFAAEAAAAPAAoAAgAFAAEAAAAOAAoAAgAFAAEAAAANAAoAAgAFAAEAAAA=")
+tile_set = SubResource("TileSet_5vjlm")
+
+[node name="TutorialText" type="Node2D" parent="."]
+
+[node name="Movement" type="Label" parent="TutorialText"]
+offset_left = 264.0
+offset_top = 336.0
+offset_right = 542.0
+offset_bottom = 420.0
+theme_override_colors/font_color = Color(0.910156, 0.730469, 0, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("8_gwcy2")
+theme_override_font_sizes/font_size = 32
+text = "A & D To Move
+Spacebar To Jump"
+
+[node name="SetNextScene" type="Label" parent="TutorialText"]
+offset_left = 808.0
+offset_top = 256.0
+offset_right = 1239.0
+offset_bottom = 382.0
+theme_override_colors/font_color = Color(0.910156, 0.730469, 0, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("8_gwcy2")
+theme_override_font_sizes/font_size = 32
+text = "Level Finish
+Set the next scene
+from \"LevelFinishDoor\" Area"
+
+[node name="GameManager" type="Node2D" parent="."]
+script = ExtResource("4_vgfkr")
+
+[node name="UserInterface" type="CanvasLayer" parent="."]
+
+[node name="GameUI" type="Control" parent="UserInterface"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("6_66mfc")
+
+[node name="Score" type="Control" parent="UserInterface/GameUI"]
+unique_name_in_owner = true
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ScoreTexture" type="TextureRect" parent="UserInterface/GameUI/Score"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 16.0
+offset_top = 16.0
+offset_right = 116.0
+offset_bottom = 116.0
+texture = ExtResource("7_j7jun")
+stretch_mode = 4
+
+[node name="ScoreLabel" type="Label" parent="UserInterface/GameUI/Score"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 104.0
+offset_top = 42.0
+offset_right = 148.0
+offset_bottom = 84.0
+theme_override_colors/font_color = Color(0.910156, 0.730469, 0, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("8_gwcy2")
+theme_override_font_sizes/font_size = 32
+text = "x 3"

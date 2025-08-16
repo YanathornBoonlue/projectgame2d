@@ -1,0 +1,96 @@
+[gd_scene load_steps=8 format=3 uid="uid://djnx7f8italis"]
+
+[ext_resource type="Texture2D" uid="uid://d4j6vqrfijsj4" path="res://Assets/Spritesheet/07.png" id="1_hbsi2"]
+[ext_resource type="Script" uid="uid://cm1twi0daopgv" path="res://Scenes/Prefabs/trap_box.gd" id="1_ti0gd"]
+[ext_resource type="Texture2D" uid="uid://dwnrivbwip8a4" path="res://Assets/Spritesheet/11.png" id="2_ti0gd"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hbsi2"]
+size = Vector2(41, 38.5938)
+
+[sub_resource type="Animation" id="Animation_888yk"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("StaticBody2D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("StaticBody2D/CollisionShape2D:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_ti0gd"]
+resource_name = "swing"
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("StaticBody2D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.785398, -0.785398]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("StaticBody2D/CollisionShape2D:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_jgw20"]
+_data = {
+&"RESET": SubResource("Animation_888yk"),
+&"swing": SubResource("Animation_ti0gd")
+}
+
+[node name="trap_box" type="Node2D" groups=["Traps"]]
+script = ExtResource("1_ti0gd")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." groups=["Traps"]]
+position = Vector2(0, -93)
+
+[node name="07" type="Sprite2D" parent="StaticBody2D"]
+position = Vector2(0, 23)
+texture = ExtResource("1_hbsi2")
+
+[node name="08" type="Sprite2D" parent="StaticBody2D"]
+position = Vector2(0, 7)
+texture = ExtResource("1_hbsi2")
+
+[node name="11" type="Sprite2D" parent="StaticBody2D"]
+position = Vector2(0, 61)
+texture = ExtResource("2_ti0gd")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(0, 72)
+shape = SubResource("RectangleShape2D_hbsi2")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_jgw20")
+}
