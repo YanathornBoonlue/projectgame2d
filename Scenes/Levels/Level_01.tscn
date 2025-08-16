@@ -230,20 +230,20 @@ offset_bottom = 40.0
 [node name="ScoreTexture" type="TextureRect" parent="UserInterface/GameUI/Score"]
 unique_name_in_owner = true
 layout_mode = 0
-offset_left = 16.0
-offset_top = 16.0
-offset_right = 116.0
-offset_bottom = 116.0
+offset_left = 71.0
+offset_top = 34.0
+offset_right = 171.0
+offset_bottom = 134.0
 texture = ExtResource("7_j7jun")
 stretch_mode = 4
 
 [node name="ScoreLabel" type="Label" parent="UserInterface/GameUI/Score"]
 unique_name_in_owner = true
 layout_mode = 0
-offset_left = 104.0
-offset_top = 42.0
-offset_right = 148.0
-offset_bottom = 84.0
+offset_left = 166.0
+offset_top = 60.0
+offset_right = 211.0
+offset_bottom = 102.0
 theme_override_colors/font_color = Color(0.910156, 0.730469, 0, 1)
 theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
 theme_override_constants/outline_size = 10
