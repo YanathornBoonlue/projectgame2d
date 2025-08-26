@@ -13,6 +13,8 @@ var jump_count : int = 2
 @export var double_jump : = false
 
 var is_grounded : bool = false
+var is_dying: bool = false
+var can_take_damage: bool = true # For damage cooldown
 
 @onready var player_sprite = $AnimatedSprite2D
 @onready var spawn_point = %SpawnPoint
@@ -26,6 +28,13 @@ func _process(_delta):
 	movement()
 	player_animations()
 	flip_player()
+	
+	if GameManager.hp <= 0:
+		GameManager.hp = 0
+		#AudioManager.get_node("DeathSfx").play()
+		death_particles.emitting = true
+		death_tween()
+	
 	
 # --------- CUSTOM FUNCTIONS ---------- #
 
@@ -66,12 +75,12 @@ func player_animations():
 	if is_on_floor():
 		if abs(velocity.x) > 0:
 			particle_trails.emitting = true
-			$Yanathorn/AnimationPlayer.play("เดิน")
+			$Yanathorn/AnimationPlayer.play("Walk")
 		else:
-			player_sprite.play("ยืน")
+			player_sprite.play("Idle")
 			$Yanathorn/AnimationPlayer.play("RESET")
 	else:
-		$Yanathorn/AnimationPlayer.play("กระโดด")
+		$Yanathorn/AnimationPlayer.play("Jump")
 
 # Flip player sprite based on X velocity
 func flip_player():
@@ -82,13 +91,16 @@ func flip_player():
 
 # Tween Animations
 func death_tween():
+	is_dying = true
 	var tween = create_tween()
 	tween.tween_property(self, "scale", Vector2.ZERO, 0.15)
 	await tween.finished
 	global_position = spawn_point.global_position
 	await get_tree().create_timer(0.3).timeout
 	AudioManager.respawn_sfx.play()
+	GameManager.respawn_player()
 	respawn_tween()
+	is_dying = false
 
 func respawn_tween():
 	var tween = create_tween()
@@ -101,10 +113,31 @@ func jump_tween():
 	tween.tween_property(self, "scale", Vector2.ONE, 0.1)
 
 # --------- SIGNALS ---------- #
-
 # Reset the player's position to the current level spawn point if collided with any trap
 func _on_collision_body_entered(_body):
 	if _body.is_in_group("Traps"):
+		# Only run this code if the player is able to take damage
+		if can_take_damage:
+			# 1. Immediately prevent taking damage again
+			can_take_damage = false
+			
+			# 2. Play sound and deal damage ONCE
+			#AudioManager.death_sfx.play() 
+			death_particles.emitting = true
+			GameManager.damage(10)
+			
+			# 3. Start a short timer. After 1 second, the player can take damage again.
+			get_tree().create_timer(1.0).timeout.connect(func(): can_take_damage = true)
+			
+	elif _body.is_in_group("Traps Dead"):
+		# Prevent death animation  from running multiple times
+		if is_dying:
+			return
+		
+		# SET THE STATE 
+		is_dying = true
+	
+		GameManager.hp = 0
 		AudioManager.death_sfx.play()
 		death_particles.emitting = true
 		death_tween()
