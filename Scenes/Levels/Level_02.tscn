@@ -493,6 +493,7 @@ text = "x 3"
 
 [node name="HPLabel" type="Label" parent="UserInterface/GameUI/Score"]
 unique_name_in_owner = true
+layout_mode = 0
 offset_left = 172.0
 offset_top = 45.0
 offset_right = 276.0
