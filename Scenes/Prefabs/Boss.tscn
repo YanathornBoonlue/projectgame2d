@@ -1,0 +1,167 @@
+[gd_scene load_steps=23 format=3 uid="uid://bgn4wbc60tls1"]
+
+[ext_resource type="Texture2D" uid="uid://b6y4hll8lqb7q" path="res://Assets/Boss Agis/Agis.png" id="1_wy71k"]
+[ext_resource type="Script" uid="uid://b2uati1i0opk4" path="res://Scenes/Prefabs/boss.gd" id="1_x1c7d"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6ks7b"]
+size = Vector2(136.008, 572.092)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_wy71k"]
+radius = 128.0
+height = 692.403
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x1c7d"]
+atlas = ExtResource("1_wy71k")
+region = Rect2(0, 0, 224, 240)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bhldr"]
+atlas = ExtResource("1_wy71k")
+region = Rect2(224, 0, 224, 240)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_usena"]
+atlas = ExtResource("1_wy71k")
+region = Rect2(448, 0, 224, 240)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6fqpc"]
+atlas = ExtResource("1_wy71k")
+region = Rect2(672, 0, 224, 240)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_muh8k"]
+atlas = ExtResource("1_wy71k")
+region = Rect2(896, 0, 224, 240)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gd8u6"]
+atlas = ExtResource("1_wy71k")
+region = Rect2(1120, 0, 224, 240)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yhebu"]
+atlas = ExtResource("1_wy71k")
+region = Rect2(1344, 0, 224, 240)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3mmeh"]
+atlas = ExtResource("1_wy71k")
+region = Rect2(1568, 0, 224, 240)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s5neu"]
+atlas = ExtResource("1_wy71k")
+region = Rect2(1792, 0, 224, 240)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gcuvs"]
+atlas = ExtResource("1_wy71k")
+region = Rect2(2016, 0, 224, 240)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_00wkh"]
+atlas = ExtResource("1_wy71k")
+region = Rect2(2240, 0, 224, 240)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rs135"]
+atlas = ExtResource("1_wy71k")
+region = Rect2(2464, 0, 224, 240)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qfkn8"]
+atlas = ExtResource("1_wy71k")
+region = Rect2(2688, 0, 224, 240)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nrnpb"]
+atlas = ExtResource("1_wy71k")
+region = Rect2(2912, 0, 224, 240)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2v20j"]
+atlas = ExtResource("1_wy71k")
+region = Rect2(3136, 0, 224, 240)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ixjbl"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x1c7d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bhldr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_usena")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6fqpc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_muh8k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gd8u6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yhebu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3mmeh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s5neu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gcuvs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_00wkh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rs135")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qfkn8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nrnpb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2v20j")
+}],
+"loop": true,
+"name": &"Agis Idle",
+"speed": 15.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_60181"]
+radius = 98.9147
+height = 468.837
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_x1c7d"]
+radius = 171.628
+height = 791.318
+
+[node name="monster" type="CharacterBody2D"]
+scale = Vector2(0.161756, 0.139838)
+script = ExtResource("1_x1c7d")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 286.046)
+shape = SubResource("RectangleShape2D_6ks7b")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+position = Vector2(0, -100.837)
+rotation = -1.5708
+shape = SubResource("CapsuleShape2D_wy71k")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, 1.52588e-05)
+scale = Vector2(4.28571, 4.75083)
+sprite_frames = SubResource("SpriteFrames_ixjbl")
+animation = &"Agis Idle"
+frame = 3
+frame_progress = 0.199571
+
+[node name="HitArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitArea"]
+position = Vector2(0, 286.046)
+rotation = -3.14159
+shape = SubResource("CapsuleShape2D_60181")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="HitArea"]
+position = Vector2(0, -114.418)
+rotation = -1.5708
+shape = SubResource("CapsuleShape2D_x1c7d")
+
+[connection signal="body_entered" from="HitArea" to="." method="_on_hit_area_body_entered"]
