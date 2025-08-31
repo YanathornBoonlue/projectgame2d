@@ -33,6 +33,10 @@ window/stretch/aspect="expand"
 
 enabled=PackedStringArray()
 
+[global_group]
+
+"Traps Dead"=""
+
 [input]
 
 Left={

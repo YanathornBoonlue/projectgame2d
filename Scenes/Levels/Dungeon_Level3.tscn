@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://bhjmohssyfuq2"]
+[gd_scene load_steps=19 format=3 uid="uid://bhjmohssyfuq2"]
 
 [ext_resource type="PackedScene" uid="uid://cyti38f0lagf2" path="res://Scenes/Prefabs/LevelFinishDoor.tscn" id="1_ew58k"]
 [ext_resource type="PackedScene" uid="uid://bjb3dx2x4bocm" path="res://Scenes/Levels/Level_02.tscn" id="2_fitub"]
@@ -8,6 +8,8 @@
 [ext_resource type="Texture2D" uid="uid://bm8lo374eo7p3" path="res://Assets/Spritesheet/Whimsy_Hallow_Dungeon_64px.png" id="8_cds21"]
 [ext_resource type="FontFile" uid="uid://qgc4vi5osk7v" path="res://Assets/Fonts/Star Choco.ttf" id="11_2qat5"]
 [ext_resource type="PackedScene" uid="uid://bgn4wbc60tls1" path="res://Scenes/Prefabs/Boss.tscn" id="11_24mhj"]
+[ext_resource type="Texture2D" uid="uid://b8fvyu8eu5tnm" path="res://Assets/Textures/HPbarUnder.png" id="11_nq73x"]
+[ext_resource type="Texture2D" uid="uid://beci2n5mhtjd6" path="res://Assets/Textures/HPbarProgress.png" id="11_p5lga"]
 [ext_resource type="Script" uid="uid://b3otwjimxlk6l" path="res://Scripts/GameManager.gd" id="12_h66k1"]
 [ext_resource type="Script" uid="uid://b4cw5w8ycec5t" path="res://Scripts/GameUI.gd" id="13_a68ga"]
 [ext_resource type="Texture2D" uid="uid://clreg520jah1j" path="res://Assets/platformPack_item008.png" id="14_57mkq"]
@@ -18571,6 +18573,32 @@ theme_override_fonts/font = ExtResource("11_2qat5")
 theme_override_font_sizes/font_size = 32
 text = "x 3"
 
-[node name="Boss" parent="." instance=ExtResource("11_24mhj")]
+[node name="HPLabel" type="Label" parent="UserInterface/GameUI/Score"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 171.0
+offset_top = 45.0
+offset_right = 275.0
+offset_bottom = 84.0
+theme_override_colors/font_color = Color(0.443764, 0.970312, 0, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("11_2qat5")
+theme_override_font_sizes/font_size = 32
+text = "HP 100"
+
+[node name="BossHPBar" type="TextureProgressBar" parent="UserInterface/GameUI"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 361.0
+offset_top = 27.0
+offset_right = 1212.0
+offset_bottom = 293.0
+scale = Vector2(0.499829, 0.246822)
+max_value = 500.0
+texture_under = ExtResource("11_nq73x")
+texture_progress = ExtResource("11_p5lga")
+
+[node name="Boss" parent="." groups=["Traps"] instance=ExtResource("11_24mhj")]
 position = Vector2(1376, 472)
 scale = Vector2(0.5, 0.432)

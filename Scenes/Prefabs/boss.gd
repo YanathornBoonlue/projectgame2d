@@ -14,6 +14,11 @@ func death_tween():
 	var delay = randf_range(5,10)
 	await get_tree().create_timer(delay).timeout
 
+#func take_damage(amount: int):
+	#GameManager.boss_hp -= amount
+	#if GameManager.boss_hp <= 0:
+		#GameManager.boss_hp = 0
+		#death_tween()
 
 func _on_hit_area_body_entered(body: Node2D) -> void:
 	if alive && body.is_in_group("Player"):

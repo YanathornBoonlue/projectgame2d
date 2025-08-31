@@ -4,6 +4,7 @@ extends Node2D
 
 var score : int = 0
 var hp :int = 100
+var boss_hp: int = 500  # Boss HP starts at 500
 
 # Adds 1 to score variable
 func add_score():

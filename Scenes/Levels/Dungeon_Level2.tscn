@@ -18563,3 +18563,16 @@ theme_override_constants/outline_size = 10
 theme_override_fonts/font = ExtResource("11_2qat5")
 theme_override_font_sizes/font_size = 32
 text = "x 3"
+
+[node name="HPLabel" type="Label" parent="UserInterface/GameUI/Score"]
+unique_name_in_owner = true
+offset_left = 171.0
+offset_top = 45.0
+offset_right = 275.0
+offset_bottom = 84.0
+theme_override_colors/font_color = Color(0.443764, 0.970312, 0, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("11_2qat5")
+theme_override_font_sizes/font_size = 32
+text = "HP 100"
