@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://0y3nblokrvjy"]
+
+[ext_resource type="Script" path="res://Scripts/Key.gd" id="1_0q4ug"]
+[ext_resource type="Texture2D" uid="uid://y7t0acrynk23" path="res://Assets/Textures/key1.png" id="2_e1eu4"]
+[ext_resource type="AudioStream" uid="uid://bj0dixy6jaqu" path="res://Assets/Sound/FX/pickup_key.wav" id="3_e1eu4"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ho7xv"]
+radius = 21.0
+height = 88.3448
+
+[node name="Key" type="Area2D"]
+script = ExtResource("1_0q4ug")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_e1eu4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-4, 8)
+rotation = 1.5674
+scale = Vector2(0.935823, 0.905614)
+shape = SubResource("CapsuleShape2D_ho7xv")
+
+[node name="PickupSfx" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_e1eu4")
+volume_db = 13.867
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
