@@ -1,0 +1,28 @@
+[gd_scene load_steps=4 format=3 uid="uid://bblv8v7oiinba"]
+
+[ext_resource type="Script" uid="uid://bucjp4s0ud4qa" path="res://Scripts/arrow.gd" id="1_bvhc2"]
+[ext_resource type="Texture2D" uid="uid://w4dila74k4xt" path="res://Assets/Textures/arrow.png" id="2_xmsg5"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_eby7d"]
+radius = 11.0
+height = 85.0704
+
+[node name="Arrow" type="Area2D" groups=["Traps"]]
+rotation = -3.12226
+scale = Vector2(0.505, 0.505)
+collision_layer = 0
+script = ExtResource("1_bvhc2")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+rotation = 3.11852
+texture = ExtResource("2_xmsg5")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-2.01811, -1.94154)
+rotation = 1.55447
+scale = Vector2(1.06426, 0.931082)
+shape = SubResource("CapsuleShape2D_eby7d")
+
+[node name="LifeTimer" type="Timer" parent="."]
+wait_time = 17.823
+one_shot = true

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://h8g43go5ykaq"
-path="res://.godot/imported/2D Platformer Starter Kit Splash.png-d2864ca8c945c1c7a9f0b5e892f3a8a6.ctex"
+uid="uid://w4dila74k4xt"
+path="res://.godot/imported/arrow.png-96689c530bd7cedf05b902f1c91baef8.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Splash/2D Platformer Starter Kit Splash.png"
-dest_files=["res://.godot/imported/2D Platformer Starter Kit Splash.png-d2864ca8c945c1c7a9f0b5e892f3a8a6.ctex"]
+source_file="res://Assets/Textures/arrow.png"
+dest_files=["res://.godot/imported/arrow.png-96689c530bd7cedf05b902f1c91baef8.ctex"]
 
 [params]
 

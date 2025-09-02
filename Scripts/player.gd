@@ -131,7 +131,7 @@ func _on_collision_body_entered(_body):
 			# 2. Play sound and deal damage ONCE
 			#AudioManager.death_sfx.play() 
 			death_particles.emitting = true
-			GameManager.damage(10)
+			GameManager.damage(20)
 			
 			# 3. Start a short timer. After 1 second, the player can take damage again.
 			get_tree().create_timer(1.0).timeout.connect(func(): can_take_damage = true)

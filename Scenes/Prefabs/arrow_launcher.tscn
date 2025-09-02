@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=3 uid="uid://c7rrpo4ibyqck"]
+
+[ext_resource type="Script" uid="uid://ds04pmwv1c3e6" path="res://Scripts/arrow_launcher.gd" id="1_0b2er"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fs6ak"]
+size = Vector2(654, 86)
+
+[node name="ArrowLauncher" type="Node2D"]
+script = ExtResource("1_0b2er")
+
+[node name="Spawn" type="Marker2D" parent="."]
+
+[node name="FireTimer" type="Timer" parent="."]
+wait_time = 1.5
+
+[node name="TriggerArea" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TriggerArea"]
+position = Vector2(-313, 27)
+rotation = 0.00715446
+shape = SubResource("RectangleShape2D_fs6ak")

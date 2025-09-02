@@ -1,8 +1,8 @@
 [gd_scene load_steps=7 format=3 uid="uid://kegjkc44ggpt"]
 
-[ext_resource type="Script" uid="uid://bodbxn6gaqojn" path="res://Scripts/LockBlock.gd" id="1_vghtl"]
+[ext_resource type="Script" path="res://Scripts/LockBlock.gd" id="1_vghtl"]
 [ext_resource type="Texture2D" uid="uid://cxbr2wye04si2" path="res://Assets/Textures/lockdoor.png" id="2_nqsq7"]
-[ext_resource type="Script" path="res://Scripts/unlock_area.gd" id="3_nqsq7"]
+[ext_resource type="Script" uid="uid://o7m1qth0amjy" path="res://Scripts/unlock_area.gd" id="3_nqsq7"]
 [ext_resource type="AudioStream" uid="uid://bltbe5vdbj71n" path="res://Assets/Sound/FX/unlock_door.wav" id="4_yhi8e"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yhi8e"]
