@@ -63,6 +63,7 @@ Jump={
 2d_physics/layer_3="Boss"
 2d_physics/layer_4="BossAttack"
 2d_physics/layer_2="world"
+2d_physics/layer_4="BossAttack"
 2d_physics/layer_5="Attack"
 
 [rendering]
