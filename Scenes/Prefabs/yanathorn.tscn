@@ -1,9 +1,9 @@
 [gd_scene load_steps=11 format=3 uid="uid://d24pmgsqloknn"]
 
-[ext_resource type="Texture2D" uid="uid://c3wc27vk0fq7h" path="res://arts/leg perfect.png" id="2_a5d2k"]
-[ext_resource type="Texture2D" uid="uid://cnugjqr6h771k" path="res://arts/arm.png" id="4_36p2k"]
-[ext_resource type="Texture2D" uid="uid://b1vrh63p40cq2" path="res://arts/body perfect.png" id="5_f46pt"]
-[ext_resource type="Texture2D" uid="uid://b61h7c3wcvrry" path="res://arts/studentphoto Face Cutout.png" id="6_m28h3"]
+[ext_resource type="Texture2D" uid="uid://c3wc27vk0fq7h" path="res://Assets/arts/leg perfect.png" id="2_a5d2k"]
+[ext_resource type="Texture2D" uid="uid://cnugjqr6h771k" path="res://Assets/arts/arm.png" id="4_36p2k"]
+[ext_resource type="Texture2D" uid="uid://b1vrh63p40cq2" path="res://Assets/arts/body perfect.png" id="5_f46pt"]
+[ext_resource type="Texture2D" uid="uid://b61h7c3wcvrry" path="res://Assets/arts/studentphoto Face Cutout.png" id="6_m28h3"]
 
 [sub_resource type="Animation" id="Animation_pqvja"]
 length = 0.001

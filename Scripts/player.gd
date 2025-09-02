@@ -81,12 +81,12 @@ func player_animations():
 	if is_on_floor():
 		if abs(velocity.x) > 0:
 			particle_trails.emitting = true
-			$Yanathorn/AnimationPlayer.play("Walk")
+			$Yanathorn/AnimationPlayer.play("เดิน")
 		else:
 			player_sprite.play("Idle")
 			$Yanathorn/AnimationPlayer.play("RESET")
 	else:
-		$Yanathorn/AnimationPlayer.play("Jump")
+		$Yanathorn/AnimationPlayer.play("กระโดด")
 
 # Flip player sprite based on X velocity
 func flip_player():
