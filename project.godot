@@ -15,6 +15,7 @@ config/tags=PackedStringArray("starterkit")
 run/main_scene="uid://bgd5dlehmxc27"
 config/features=PackedStringArray("4.4", "Forward Plus")
 boot_splash/bg_color=Color(0, 0, 0, 1)
+boot_splash/image="res://Assets/Splash/2D Platformer Starter Kit Splash.png"
 config/icon="res://Icon.png"
 
 [autoload]
@@ -22,7 +23,6 @@ config/icon="res://Icon.png"
 GameManager="*res://Scripts/GameManager.gd"
 SceneTransition="*res://Scenes/Managers/SceneTransition.tscn"
 AudioManager="*res://Scenes/Managers/AudioManager.tscn"
-MusicManager="*res://autoload/MusicManager.gd"
 
 [display]
 
@@ -36,7 +36,6 @@ enabled=PackedStringArray()
 [global_group]
 
 "Traps Dead"=""
-Traps=""
 
 [input]
 

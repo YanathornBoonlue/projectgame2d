@@ -1,0 +1,104 @@
+[gd_scene load_steps=15 format=3 uid="uid://b2onqnko21t4i"]
+
+[ext_resource type="Script" uid="uid://c68v12e17pk4f" path="res://Scripts/SkullSpell.gd" id="1_nvjmj"]
+[ext_resource type="Texture2D" uid="uid://bjp7bgjuc3lna" path="res://Assets/Textures/Dark VFX 1 (40x32).png" id="4_i865b"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ha4bp"]
+atlas = ExtResource("4_i865b")
+region = Rect2(0, 0, 40, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hnho0"]
+atlas = ExtResource("4_i865b")
+region = Rect2(40, 0, 40, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gqci6"]
+atlas = ExtResource("4_i865b")
+region = Rect2(80, 0, 40, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_isa0t"]
+atlas = ExtResource("4_i865b")
+region = Rect2(120, 0, 40, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cjdbc"]
+atlas = ExtResource("4_i865b")
+region = Rect2(160, 0, 40, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_35d6r"]
+atlas = ExtResource("4_i865b")
+region = Rect2(200, 0, 40, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wlrnl"]
+atlas = ExtResource("4_i865b")
+region = Rect2(240, 0, 40, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ewjat"]
+atlas = ExtResource("4_i865b")
+region = Rect2(280, 0, 40, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kon1b"]
+atlas = ExtResource("4_i865b")
+region = Rect2(320, 0, 40, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u0y0p"]
+atlas = ExtResource("4_i865b")
+region = Rect2(360, 0, 40, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ybce6"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ha4bp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hnho0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gqci6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_isa0t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cjdbc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_35d6r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wlrnl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ewjat")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kon1b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u0y0p")
+}],
+"loop": true,
+"name": &"Skull",
+"speed": 9.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_q0u14"]
+radius = 7.0
+height = 20.0
+
+[node name="SkullSpell" type="RigidBody2D"]
+script = ExtResource("1_nvjmj")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_ybce6")
+animation = &"Skull"
+frame_progress = 0.900299
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 1)
+rotation = -1.5708
+shape = SubResource("CapsuleShape2D_q0u14")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+position = Vector2(-2, 1)
+scale = Vector2(1.2, 0.7)
+metadata/_edit_lock_ = true

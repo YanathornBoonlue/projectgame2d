@@ -1,0 +1,142 @@
+[gd_scene load_steps=21 format=3 uid="uid://bolnhskggjg6e"]
+
+[ext_resource type="Script" uid="uid://c0hw5a3xyfesc" path="res://Scripts/DeadSpell.gd" id="1_1igtq"]
+[ext_resource type="Texture2D" uid="uid://d0j0q1r6p6njt" path="res://Assets/Textures/Dark VFX 2 (48x64).png" id="2_7b7kq"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_pxcsk"]
+radius = 12.0
+height = 44.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d4yps"]
+atlas = ExtResource("2_7b7kq")
+region = Rect2(0, 0, 48, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fsx3k"]
+atlas = ExtResource("2_7b7kq")
+region = Rect2(48, 0, 48, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mxb8u"]
+atlas = ExtResource("2_7b7kq")
+region = Rect2(96, 0, 48, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qo218"]
+atlas = ExtResource("2_7b7kq")
+region = Rect2(144, 0, 48, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nlxxv"]
+atlas = ExtResource("2_7b7kq")
+region = Rect2(192, 0, 48, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6wjd4"]
+atlas = ExtResource("2_7b7kq")
+region = Rect2(240, 0, 48, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ah5g8"]
+atlas = ExtResource("2_7b7kq")
+region = Rect2(288, 0, 48, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dl6yg"]
+atlas = ExtResource("2_7b7kq")
+region = Rect2(336, 0, 48, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jtw5b"]
+atlas = ExtResource("2_7b7kq")
+region = Rect2(384, 0, 48, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3y13v"]
+atlas = ExtResource("2_7b7kq")
+region = Rect2(432, 0, 48, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0m8yy"]
+atlas = ExtResource("2_7b7kq")
+region = Rect2(480, 0, 48, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o6tpb"]
+atlas = ExtResource("2_7b7kq")
+region = Rect2(528, 0, 48, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3f2au"]
+atlas = ExtResource("2_7b7kq")
+region = Rect2(576, 0, 48, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_11wd0"]
+atlas = ExtResource("2_7b7kq")
+region = Rect2(624, 0, 48, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kvnb6"]
+atlas = ExtResource("2_7b7kq")
+region = Rect2(672, 0, 48, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tcn0s"]
+atlas = ExtResource("2_7b7kq")
+region = Rect2(720, 0, 48, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_proaq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d4yps")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fsx3k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mxb8u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qo218")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nlxxv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6wjd4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ah5g8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dl6yg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jtw5b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3y13v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0m8yy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o6tpb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3f2au")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_11wd0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kvnb6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tcn0s")
+}],
+"loop": true,
+"name": &"Dead",
+"speed": 10.0
+}]
+
+[node name="DeadSpell" type="Area2D"]
+script = ExtResource("1_1igtq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 10)
+shape = SubResource("CapsuleShape2D_pxcsk")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_proaq")
+animation = &"Dead"
+frame = 7
+frame_progress = 0.351121
+metadata/_edit_lock_ = true

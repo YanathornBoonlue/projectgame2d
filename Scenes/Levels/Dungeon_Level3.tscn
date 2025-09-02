@@ -6,13 +6,13 @@
 [ext_resource type="PackedScene" uid="uid://bfmh3fm2de78o" path="res://Scenes/Prefabs/Coin.tscn" id="4_jco3i"]
 [ext_resource type="Texture2D" uid="uid://jaegp53ccc7w" path="res://Assets/Spritesheet/platformPack_tilesheet.png" id="5_e55m0"]
 [ext_resource type="Texture2D" uid="uid://bm8lo374eo7p3" path="res://Assets/Spritesheet/Whimsy_Hallow_Dungeon_64px.png" id="8_cds21"]
+[ext_resource type="Texture2D" uid="uid://dqqbvl6fqnt8l" path="res://Assets/Items/Icon38.png" id="10_p5lga"]
 [ext_resource type="FontFile" uid="uid://qgc4vi5osk7v" path="res://Assets/Fonts/Star Choco.ttf" id="11_2qat5"]
 [ext_resource type="PackedScene" uid="uid://bgn4wbc60tls1" path="res://Scenes/Prefabs/Boss.tscn" id="11_24mhj"]
 [ext_resource type="Texture2D" uid="uid://b8fvyu8eu5tnm" path="res://Assets/Textures/HPbarUnder.png" id="11_nq73x"]
 [ext_resource type="Texture2D" uid="uid://beci2n5mhtjd6" path="res://Assets/Textures/HPbarProgress.png" id="11_p5lga"]
 [ext_resource type="Script" uid="uid://b3otwjimxlk6l" path="res://Scripts/GameManager.gd" id="12_h66k1"]
 [ext_resource type="Script" uid="uid://b4cw5w8ycec5t" path="res://Scripts/GameUI.gd" id="13_a68ga"]
-[ext_resource type="Texture2D" uid="uid://clreg520jah1j" path="res://Assets/platformPack_item008.png" id="14_57mkq"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_gs0qk"]
 texture = ExtResource("5_e55m0")
@@ -18463,6 +18463,7 @@ position = Vector2(1372, -10)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 position = Vector2(16, 36)
+zoom = Vector2(0.5, 0.5)
 limit_left = 0
 limit_bottom = 1440
 limit_smoothed = true
@@ -18486,7 +18487,7 @@ position = Vector2(-168, 472)
 [node name="Ground" type="TileMap" parent="Level" groups=["Ground"]]
 tile_set = SubResource("TileSet_ywwrl")
 format = 2
-layer_0/tile_data = PackedInt32Array(-65516, 2686978, 76, -131052, 2686978, 76, -196588, 2686978, 76, -65514, 2818050, 76, -131050, 2818050, 76, -196586, 2818050, 76, -262124, 2686978, 76, -262122, 2818050, 76, 458764, 2752514, 66, 458765, 2752514, 66, 589838, 2752514, 66, 589839, 2752514, 66, 262155, 2752514, 66, 262153, 2752514, 66, 262154, 2752514, 66, 458780, 2752514, 66, 458781, 2752514, 66, 589855, 2752514, 66, 589854, 2752514, 66, 262175, 2752514, 66, 262176, 2752514, 66, 262177, 2752514, 66, 458779, 2752514, 66, 393234, 2752514, 66, 393240, 2752514, 66, 393241, 2752514, 66, 393233, 2752514, 66, 524296, 2752514, 66, 393250, 2752514, 66, 458787, 2752514, 66, 393223, 2752514, 66, 393222, 2752514, 66, 196622, 2752514, 66, 196623, 2752514, 66, 196635, 2752514, 66, 131100, 2752514, 66, 131101, 2752514, 66, 589830, 2752514, 66, 589834, 2752514, 66, 720902, 655362, 64, 720903, 655362, 64, 720905, 655362, 64, 720904, 655362, 64, 720906, 655362, 64, 720908, 655362, 64, 720909, 655362, 64, 720910, 655362, 64, 720907, 655362, 64, 720911, 655362, 64, 720912, 655362, 64, 720914, 655362, 64, 720915, 655362, 64, 720913, 655362, 64, 720916, 655362, 64, 720917, 655362, 64, 720919, 655362, 64, 720918, 655362, 64, 720920, 655362, 64, 720921, 655362, 64, 720922, 655362, 64, 720901, 655362, 64, 720923, 655362, 64, 720924, 655362, 64, 720925, 655362, 64, 720926, 655362, 64, 720927, 655362, 64, 720928, 655362, 64, 720929, 655362, 64, 720930, 655362, 64, 720931, 655362, 64, 720932, 655362, 64, -327660, 2686978, 76, -393196, 2686978, 76, -327658, 2818050, 76, -393194, 2818050, 76, 20, 2686978, 77, 21, 2752514, 77, 22, 2818050, 77)
+layer_0/tile_data = PackedInt32Array(-65516, 2686978, 76, -131052, 2686978, 76, -196588, 2686978, 76, -65514, 2818050, 76, -131050, 2818050, 76, -196586, 2818050, 76, -262124, 2686978, 76, -262122, 2818050, 76, 458764, 2752514, 66, 458765, 2752514, 66, 589838, 2752514, 66, 589839, 2752514, 66, 262175, 2752514, 66, 262176, 2752514, 66, 262177, 2752514, 66, -327660, 2686978, 76, -393196, 2686978, 76, -327658, 2818050, 76, -393194, 2818050, 76, 20, 2686978, 77, 21, 2752514, 77, 22, 2818050, 77, 720932, 2752514, 66, 1048606, 655362, 64, 1048605, 655362, 64, 1048604, 655362, 64, 1048603, 655362, 64, 1048602, 655362, 64, 1048601, 655362, 64, 1048600, 655362, 64, 1048599, 655362, 64, 1048598, 655362, 64, 1048597, 655362, 64, 1048596, 655362, 64, 1048595, 655362, 64, 1048594, 655362, 64, 1048593, 655362, 64, 1048592, 655362, 64, 1048591, 655362, 64, 1048590, 655362, 64, 1048589, 655362, 64, 1048588, 655362, 64, 1048587, 655362, 64, 1048586, 655362, 64, 1048585, 655362, 64, 1048584, 655362, 64, 1048583, 655362, 64, 1048582, 655362, 64, 1048581, 655362, 64, 1048607, 655362, 64, 1048608, 655362, 64, 1048609, 655362, 64, 1048610, 655362, 64, 1048611, 655362, 64, 1048612, 655362, 64, 1048613, 655362, 64, 1048614, 655362, 64, 1048615, 655362, 64, 1048616, 655362, 64, 1048580, 655362, 64, 1048579, 655362, 64, 1048578, 655362, 64, 1048577, 655362, 64, 1048576, 655362, 64, 720881, 655362, 64, 917489, 2686978, 66, 917491, 2752514, 66, 917493, 2818050, 66, 917495, 2883586, 66, 851959, 2883586, 65, 851953, 2686978, 65, 262181, 2752514, 66, 262182, 2752514, 66, 786439, 2752514, 66, 786440, 2752514, 66, 65569, 2752514, 66, 65570, 2752514, 66, 65571, 2752514, 66, 524325, 2752514, 66, 524327, 2752514, 66, 524326, 2752514, 66, 786464, 2752514, 66, 786465, 2752514, 66, 720933, 2752514, 66, 720897, 2752514, 66, 720898, 2752514, 66, 524292, 2752514, 66, 524293, 2752514, 66, 393251, 2752514, 66, 589858, 2752514, 66, 131111, 2752514, 66, 131112, 2752514, 66, 851972, 2752514, 66, 851973, 2752514, 66, 262148, 2752514, 66, 262149, 2752514, 66, 131072, 2752514, 66, 131073, 2752514, 66, 131074, 2752514, 66, 458752, 2752514, 66, 458754, 2752514, 66, 458753, 2752514, 66, 589835, 2752514, 66, 917539, 2752514, 66, 852007, 2752514, 66, 852008, 2752514, 66, 1048617, 655362, 64, 1048618, 655362, 64, 1048619, 655362, 64, 1048620, 655362, 64, 720938, 2752514, 66, 720939, 2752514, 66, 720940, 2752514, 66, 393260, 2752514, 66, 327722, 2752514, 66, 327721, 2752514, 66, 65579, 2752514, 66, 65580, 2752514, 66, 720922, 2752514, 66, 720913, 2752514, 66, 720914, 2752514, 66, 393240, 2752514, 66, 393241, 2752514, 66, 393233, 2752514, 66, 393234, 2752514, 66, 720921, 2752514, 66, 327708, 2752514, 66, 851996, 2752514, 66, 851997, 2752514, 66, 851983, 2752514, 66, 851982, 2752514, 66, 327695, 2752514, 66, 327694, 2752514, 66, 327707, 2752514, 66, 524317, 2752514, 66, 524318, 2752514, 66, 524319, 2752514, 66, 131097, 2752514, 66, 131098, 2752514, 66, 65548, 2752514, 66, 65547, 2752514, 66, 65542, 2752514, 66, 65543, 2752514, 66, 262154, 2752514, 66, 262155, 2752514, 66, 458759, 2752514, 66, 458760, 2752514, 66, 458761, 2752514, 66, 917515, 2752514, 66, 196625, 2752514, 66, 196626, 2752514, 66, 196629, 2752514, 66, 196630, 2752514, 66)
 
 [node name="Traps" type="TileMap" parent="Level" groups=["Traps"]]
 tile_set = SubResource("TileSet_2fcbi")
@@ -18547,16 +18548,6 @@ unique_name_in_owner = true
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
-
-[node name="ScoreTexture" type="TextureRect" parent="UserInterface/GameUI/Score"]
-unique_name_in_owner = true
-layout_mode = 0
-offset_left = 16.0
-offset_top = 16.0
-offset_right = 116.0
-offset_bottom = 116.0
-texture = ExtResource("14_57mkq")
-stretch_mode = 4
 metadata/_edit_lock_ = true
 
 [node name="ScoreLabel" type="Label" parent="UserInterface/GameUI/Score"]
@@ -18572,6 +18563,7 @@ theme_override_constants/outline_size = 10
 theme_override_fonts/font = ExtResource("11_2qat5")
 theme_override_font_sizes/font_size = 32
 text = "x 3"
+metadata/_edit_lock_ = true
 
 [node name="HPLabel" type="Label" parent="UserInterface/GameUI/Score"]
 unique_name_in_owner = true
@@ -18586,14 +18578,26 @@ theme_override_constants/outline_size = 5
 theme_override_fonts/font = ExtResource("11_2qat5")
 theme_override_font_sizes/font_size = 32
 text = "HP 100"
+metadata/_edit_lock_ = true
+
+[node name="ScoreTexture" type="TextureRect" parent="UserInterface/GameUI/Score"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 47.0
+offset_top = 30.0
+offset_right = 115.0
+offset_bottom = 87.0
+texture = ExtResource("10_p5lga")
+stretch_mode = 4
+metadata/_edit_lock_ = true
 
 [node name="BossHPBar" type="TextureProgressBar" parent="UserInterface/GameUI"]
 unique_name_in_owner = true
 layout_mode = 0
-offset_left = 361.0
-offset_top = 27.0
-offset_right = 1212.0
-offset_bottom = 293.0
+offset_left = 421.0
+offset_top = 14.0
+offset_right = 1272.0
+offset_bottom = 291.0
 scale = Vector2(0.499829, 0.246822)
 max_value = 500.0
 fill_mode = 1
@@ -18601,5 +18605,5 @@ texture_under = ExtResource("11_nq73x")
 texture_progress = ExtResource("11_p5lga")
 
 [node name="Boss" parent="." groups=["Traps"] instance=ExtResource("11_24mhj")]
-position = Vector2(1376, 472)
-scale = Vector2(0.5, 0.432)
+position = Vector2(1391, 700)
+scale = Vector2(0.7, 0.604)
