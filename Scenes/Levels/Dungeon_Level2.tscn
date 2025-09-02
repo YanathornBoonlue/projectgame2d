@@ -18457,7 +18457,7 @@ position = Vector2(75, 482)
 [node name="Camera2D" type="Camera2D" parent="Player"]
 position = Vector2(16, 36)
 limit_left = 0
-limit_bottom = 705
+limit_bottom = 1440
 limit_smoothed = true
 position_smoothing_enabled = true
 drag_horizontal_enabled = true

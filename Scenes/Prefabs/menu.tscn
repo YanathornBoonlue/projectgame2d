@@ -1,19 +1,25 @@
-[gd_scene load_steps=3 format=3 uid="uid://bgd5dlehmxc27"]
+[gd_scene load_steps=4 format=3 uid="uid://bgd5dlehmxc27"]
 
-[ext_resource type="FontFile" uid="uid://qgc4vi5osk7v" path="res://Assets/Fonts/Star Choco.ttf" id="1_lti8b"]
-[ext_resource type="Script" uid="uid://ckt5ah4ayigjv" path="res://menu.gd" id="1_ouk20"]
+[ext_resource type="Script" uid="uid://ckt5ah4ayigjv" path="res://Scenes/Prefabs/menu.gd" id="1_4uhck"]
+[ext_resource type="Texture2D" uid="uid://b38vpb0kimy46" path="res://Assets/Textures/pixel-art-dungeon-background-8-bit-games_334978-15794.png" id="2_60rnk"]
+[ext_resource type="FontFile" uid="uid://qgc4vi5osk7v" path="res://Assets/Fonts/Star Choco.ttf" id="3_i2vd2"]
 
 [node name="menu" type="Node2D"]
-script = ExtResource("1_ouk20")
+script = ExtResource("1_4uhck")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Pixel-art-dungeon-background-8-bit-games334978-15794" type="Sprite2D" parent="CanvasLayer"]
+position = Vector2(574, 325.75)
+scale = Vector2(1.84026, 1.85328)
+texture = ExtResource("2_60rnk")
 
 [node name="Label" type="Label" parent="CanvasLayer"]
 offset_left = 326.0
 offset_top = 75.0
 offset_right = 845.0
 offset_bottom = 212.0
-theme_override_fonts/font = ExtResource("1_lti8b")
+theme_override_fonts/font = ExtResource("3_i2vd2")
 theme_override_font_sizes/font_size = 100
 text = "Game Title"
 
