@@ -15,7 +15,6 @@ config/tags=PackedStringArray("starterkit")
 run/main_scene="uid://bgd5dlehmxc27"
 config/features=PackedStringArray("4.4", "Forward Plus")
 boot_splash/bg_color=Color(0, 0, 0, 1)
-boot_splash/image="res://Assets/Splash/2D Platformer Starter Kit Splash.png"
 config/icon="res://Icon.png"
 
 [autoload]
@@ -63,6 +62,8 @@ Jump={
 2d_physics/layer_2="World"
 2d_physics/layer_3="Boss"
 2d_physics/layer_4="BossAttack"
+2d_physics/layer_2="world"
+2d_physics/layer_5="Attack"
 
 [rendering]
 
