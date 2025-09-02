@@ -1,7 +1,7 @@
 [gd_scene load_steps=23 format=3 uid="uid://bgn4wbc60tls1"]
 
 [ext_resource type="Texture2D" uid="uid://b6y4hll8lqb7q" path="res://Assets/Boss Agis/Agis.png" id="1_wy71k"]
-[ext_resource type="Script" uid="uid://b2uati1i0opk4" path="res://Scripts/boss.gd" id="1_x1c7d"]
+[ext_resource type="Script" uid="uid://bjnuel334q8k0" path="res://Scenes/Prefabs/boss.gd" id="1_x1c7d"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6ks7b"]
 size = Vector2(136.008, 572.092)
@@ -134,6 +134,7 @@ height = 791.318
 [node name="monster" type="CharacterBody2D"]
 scale = Vector2(0.161756, 0.139838)
 script = ExtResource("1_x1c7d")
+sprite = null
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 286.046)

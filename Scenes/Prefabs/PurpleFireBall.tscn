@@ -1,0 +1,140 @@
+[gd_scene load_steps=19 format=3 uid="uid://dbvtyskevtnw1"]
+
+[ext_resource type="Texture2D" uid="uid://1m4i0ld5qvre" path="res://Assets/Textures/Group 7 - 3.png" id="1_ckrsj"]
+[ext_resource type="Script" uid="uid://o67eaf1vuwu7" path="res://Scripts/PurpleFireBall.gd" id="2_57fuh"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_vvnxa"]
+radius = 11.0
+height = 36.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ynquc"]
+atlas = ExtResource("1_ckrsj")
+region = Rect2(0, 0, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mklnf"]
+atlas = ExtResource("1_ckrsj")
+region = Rect2(32, 0, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_es132"]
+atlas = ExtResource("1_ckrsj")
+region = Rect2(64, 0, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0jxg4"]
+atlas = ExtResource("1_ckrsj")
+region = Rect2(96, 0, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d8gmc"]
+atlas = ExtResource("1_ckrsj")
+region = Rect2(128, 0, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v4qjq"]
+atlas = ExtResource("1_ckrsj")
+region = Rect2(160, 0, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x2r6i"]
+atlas = ExtResource("1_ckrsj")
+region = Rect2(192, 0, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k78c8"]
+atlas = ExtResource("1_ckrsj")
+region = Rect2(224, 0, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_esd26"]
+atlas = ExtResource("1_ckrsj")
+region = Rect2(256, 0, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3ldu3"]
+atlas = ExtResource("1_ckrsj")
+region = Rect2(288, 0, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_de402"]
+atlas = ExtResource("1_ckrsj")
+region = Rect2(320, 0, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_14wtk"]
+atlas = ExtResource("1_ckrsj")
+region = Rect2(352, 0, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jksug"]
+atlas = ExtResource("1_ckrsj")
+region = Rect2(384, 0, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ssqmw"]
+atlas = ExtResource("1_ckrsj")
+region = Rect2(416, 0, 32, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_n6eak"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ynquc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mklnf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_es132")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0jxg4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d8gmc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v4qjq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x2r6i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k78c8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_esd26")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3ldu3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_de402")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_14wtk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jksug")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ssqmw")
+}],
+"loop": true,
+"name": &"Purple",
+"speed": 10.0
+}]
+
+[node name="PurpleFireBall" type="RigidBody2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 5)
+shape = SubResource("CapsuleShape2D_vvnxa")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_n6eak")
+animation = &"Purple"
+frame = 2
+frame_progress = 0.269357
+script = ExtResource("2_57fuh")
+metadata/_edit_lock_ = true
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+position = Vector2(0.5, 5)
+scale = Vector2(1.15, 1.8)
+metadata/_edit_lock_ = true
+
+[node name="HitArea" type="Area2D" parent="."]
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitArea"]
+position = Vector2(0, 5)
+shape = SubResource("CapsuleShape2D_vvnxa")
