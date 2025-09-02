@@ -40,6 +40,7 @@ func _process(_delta):
 	if global_position.y > fall_limit and !is_dying:
 		GameManager.hp = 0
 		death_particles.emitting = true
+		AudioManager.death_sfx.play()
 		death_tween()
 	
 # --------- CUSTOM FUNCTIONS ---------- #

@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 @export var sprite := "Agis Idle"
-@export var attack_interval: float = 2.0
+@export var attack_interval: float = 1.0
 @export var skull_spell_scene: PackedScene
 @export var purple_fire_ball_scene: PackedScene
 @export var dead_spell_scene: PackedScene
@@ -41,7 +41,7 @@ func _cast_skull_spell() -> void:
 	if skull_spell_scene == null: return
 	var spell := skull_spell_scene.instantiate()
 	# สุ่มทิศ: -1 ซ้าย, 1 ขวา
-	var dir: int = (randi() % 2 == 0) ? 1 : -1   # -1 ซ้าย, 1 ขวา
+	var dir: int = 1 if (randi() % 2 == 0) else -1
 	# spawn ด้านซ้ายหรือขวาของบอสเล็กน้อย
 	var offset := Vector2(80 * dir, -10)
 	get_parent().add_child(spell)

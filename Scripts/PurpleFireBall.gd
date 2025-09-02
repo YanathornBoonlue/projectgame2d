@@ -5,7 +5,7 @@ extends RigidBody2D
 
 @onready var anim: AnimatedSprite2D = $AnimatedSprite2D
 @onready var notifier: VisibleOnScreenNotifier2D = $VisibleOnScreenNotifier2D
-@onready var hit_area := $HitArea if has_node("HitArea") else null
+@onready var hit_area: Area2D = $HitArea if has_node("HitArea") else null
 
 func _ready() -> void:
 	gravity_scale = gravity_scale_override
@@ -16,7 +16,7 @@ func _ready() -> void:
 	max_contacts_reported = 4
 
 	if anim:
-		anim.play("Purple") # ชื่อแอนิเมชันตามชุดเฟรม
+		anim.play("Purple")  # ชื่อแอนิเมชันตามที่ตั้งไว้
 
 	if notifier:
 		notifier.screen_exited.connect(queue_free)

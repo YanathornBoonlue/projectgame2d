@@ -4,6 +4,7 @@ extends Area2D
 @export var amplitude := 4
 @export var frequency := 5
 
+var collected := false
 var time_passed = 0
 var initial_position := Vector2.ZERO
 
@@ -22,7 +23,10 @@ func coin_hover(delta):
 
 # Coin collected
 func _on_body_entered(body):
+	if collected:
+		return
 	if body.is_in_group("Player"):
+		collected = true
 		AudioManager.coin_pickup_sfx.play()
 		GameManager.add_score()
 		var tween = create_tween()
