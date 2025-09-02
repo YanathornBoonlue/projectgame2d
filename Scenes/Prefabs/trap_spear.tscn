@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://b2oop8vuxmww7"]
 
-[ext_resource type="Script" uid="uid://dvxaryd0xxmlu" path="res://Scenes/Prefabs/trap_spear.gd" id="1_01o2o"]
+[ext_resource type="Script" uid="uid://dvxaryd0xxmlu" path="res://Scripts/trap_spear.gd" id="1_01o2o"]
 [ext_resource type="Texture2D" uid="uid://cpbo1nkwtc3e1" path="res://Assets/Spritesheet/Spear.png" id="1_ha4av"]
 
 [sub_resource type="Animation" id="Animation_vu8jh"]

@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://bgd5dlehmxc27"]
 
-[ext_resource type="Script" uid="uid://ckt5ah4ayigjv" path="res://Scenes/Prefabs/menu.gd" id="1_4uhck"]
+[ext_resource type="Script" uid="uid://ckt5ah4ayigjv" path="res://Scripts/menu.gd" id="1_4uhck"]
 [ext_resource type="Texture2D" uid="uid://b38vpb0kimy46" path="res://Assets/Textures/pixel-art-dungeon-background-8-bit-games_334978-15794.png" id="2_60rnk"]
 [ext_resource type="FontFile" uid="uid://qgc4vi5osk7v" path="res://Assets/Fonts/Star Choco.ttf" id="3_i2vd2"]
 

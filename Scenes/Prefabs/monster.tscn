@@ -1,6 +1,6 @@
 [gd_scene load_steps=19 format=3 uid="uid://sl3rawaxpq0l"]
 
-[ext_resource type="Script" uid="uid://c630gmehkudie" path="res://Scenes/Prefabs/monster.gd" id="1_4snmv"]
+[ext_resource type="Script" uid="uid://c630gmehkudie" path="res://Scripts/monster.gd" id="1_4snmv"]
 [ext_resource type="Texture2D" uid="uid://b23wkuv4lxu5p" path="res://Assets/Spritesheet/4_legs_pirates 1 flip.png" id="2_4snmv"]
 [ext_resource type="Texture2D" uid="uid://1ij4dink8wfp" path="res://Assets/Spritesheet/4_legs_pirates 2 flip.png" id="3_5hejn"]
 [ext_resource type="Texture2D" uid="uid://rcv82k0my6r" path="res://Assets/Spritesheet/4_legs_pirates 3 flip.png" id="4_mvdr7"]

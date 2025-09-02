@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://djnx7f8italis"]
 
 [ext_resource type="Texture2D" uid="uid://d4j6vqrfijsj4" path="res://Assets/Spritesheet/07.png" id="1_hbsi2"]
-[ext_resource type="Script" uid="uid://cm1twi0daopgv" path="res://Scenes/Prefabs/trap_box.gd" id="1_ti0gd"]
+[ext_resource type="Script" uid="uid://cm1twi0daopgv" path="res://Scripts/trap_box.gd" id="1_ti0gd"]
 [ext_resource type="Texture2D" uid="uid://dwnrivbwip8a4" path="res://Assets/Spritesheet/11.png" id="2_ti0gd"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hbsi2"]
