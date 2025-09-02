@@ -1,7 +1,10 @@
-[gd_scene load_steps=23 format=3 uid="uid://bgn4wbc60tls1"]
+[gd_scene load_steps=26 format=3 uid="uid://bgn4wbc60tls1"]
 
 [ext_resource type="Texture2D" uid="uid://b6y4hll8lqb7q" path="res://Assets/Boss Agis/Agis.png" id="1_wy71k"]
-[ext_resource type="Script" uid="uid://bjnuel334q8k0" path="res://Scenes/Prefabs/boss.gd" id="1_x1c7d"]
+[ext_resource type="Script" uid="uid://bjnuel334q8k0" path="res://Scripts/boss.gd" id="1_x1c7d"]
+[ext_resource type="PackedScene" uid="uid://b2onqnko21t4i" path="res://Scenes/Prefabs/SkullSpell.tscn" id="2_6fqpc"]
+[ext_resource type="PackedScene" uid="uid://dbvtyskevtnw1" path="res://Scenes/Prefabs/PurpleFireBall.tscn" id="3_muh8k"]
+[ext_resource type="PackedScene" uid="uid://bolnhskggjg6e" path="res://Scenes/Prefabs/DeadSpell.tscn" id="4_gd8u6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6ks7b"]
 size = Vector2(136.008, 572.092)
@@ -133,8 +136,13 @@ height = 791.318
 
 [node name="monster" type="CharacterBody2D"]
 scale = Vector2(0.161756, 0.139838)
+collision_layer = 4
+collision_mask = 2
 script = ExtResource("1_x1c7d")
 sprite = null
+skull_spell_scene = ExtResource("2_6fqpc")
+purple_fire_ball_scene = ExtResource("3_muh8k")
+dead_spell_scene = ExtResource("4_gd8u6")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 286.046)

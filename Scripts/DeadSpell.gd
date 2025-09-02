@@ -3,7 +3,7 @@ extends Area2D
 @export var rise_distance: float = 80.0
 @export var rise_duration: float = 0.25
 @export var alive_duration_after_rise: float = 0.15
-@export var damage: int = 25
+@export var damage: int = 5
 @export var anim_name := "Dead"
 
 @onready var anim: AnimatedSprite2D = $AnimatedSprite2D

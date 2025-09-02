@@ -86,9 +86,11 @@ radius = 7.0
 height = 20.0
 
 [node name="SkullSpell" type="RigidBody2D"]
+light_mask = 8
 script = ExtResource("1_nvjmj")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+light_mask = 8
 sprite_frames = SubResource("SpriteFrames_ybce6")
 animation = &"Skull"
 frame_progress = 0.900299

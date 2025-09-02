@@ -114,6 +114,8 @@ animations = [{
 }]
 
 [node name="PurpleFireBall" type="RigidBody2D"]
+light_mask = 8
+script = ExtResource("2_57fuh")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 5)
@@ -124,7 +126,6 @@ sprite_frames = SubResource("SpriteFrames_n6eak")
 animation = &"Purple"
 frame = 2
 frame_progress = 0.269357
-script = ExtResource("2_57fuh")
 metadata/_edit_lock_ = true
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]

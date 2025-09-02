@@ -1,6 +1,6 @@
 extends RigidBody2D
 
-@export var damage: int = 20
+@export var damage: int = 10
 @export var gravity_scale_override: float = 2.5
 
 @onready var anim: AnimatedSprite2D = $AnimatedSprite2D
