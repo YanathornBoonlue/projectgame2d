@@ -86,7 +86,7 @@ radius = 7.0
 height = 20.0
 
 [node name="SkullSpell" type="RigidBody2D"]
-light_mask = 8
+visibility_layer = 8
 script = ExtResource("1_nvjmj")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]

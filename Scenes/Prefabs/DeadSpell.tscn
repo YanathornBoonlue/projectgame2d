@@ -128,7 +128,7 @@ animations = [{
 }]
 
 [node name="DeadSpell" type="Area2D"]
-light_mask = 8
+visibility_layer = 8
 script = ExtResource("1_1igtq")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
