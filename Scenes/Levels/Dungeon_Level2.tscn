@@ -18457,7 +18457,7 @@ position = Vector2(75, 482)
 [node name="Camera2D" type="Camera2D" parent="Player"]
 position = Vector2(16, 36)
 limit_left = 0
-limit_bottom = 705
+limit_bottom = 1440
 limit_smoothed = true
 position_smoothing_enabled = true
 drag_horizontal_enabled = true
@@ -18566,6 +18566,7 @@ text = "x 3"
 
 [node name="HPLabel" type="Label" parent="UserInterface/GameUI/Score"]
 unique_name_in_owner = true
+layout_mode = 0
 offset_left = 171.0
 offset_top = 45.0
 offset_right = 275.0

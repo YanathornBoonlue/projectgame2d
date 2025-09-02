@@ -15,6 +15,7 @@ var jump_count : int = 2
 var is_grounded : bool = false
 var is_dying: bool = false
 var can_take_damage: bool = true # For damage cooldown
+var fall_limit = 1440  # Adjust based on how far down your stage is
 
 @onready var player_sprite = $AnimatedSprite2D
 @onready var spawn_point = %SpawnPoint
@@ -29,12 +30,17 @@ func _process(_delta):
 	player_animations()
 	flip_player()
 	
+	# Check if player HP is gone
 	if GameManager.hp <= 0:
 		GameManager.hp = 0
-		#AudioManager.get_node("DeathSfx").play()
 		death_particles.emitting = true
 		death_tween()
 	
+	# 🔹 Check for falling out of stage
+	if global_position.y > fall_limit and !is_dying:
+		GameManager.hp = 0
+		death_particles.emitting = true
+		death_tween()
 	
 # --------- CUSTOM FUNCTIONS ---------- #
 
