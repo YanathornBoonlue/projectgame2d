@@ -114,7 +114,6 @@ animations = [{
 }]
 
 [node name="PurpleFireBall" type="RigidBody2D"]
-visibility_layer = 8
 script = ExtResource("2_57fuh")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
