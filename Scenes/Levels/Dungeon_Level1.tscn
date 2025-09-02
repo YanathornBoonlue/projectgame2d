@@ -1,12 +1,15 @@
-[gd_scene load_steps=15 format=3 uid="uid://5rph48o2th62"]
+[gd_scene load_steps=18 format=3 uid="uid://5rph48o2th62"]
 
 [ext_resource type="PackedScene" uid="uid://cyti38f0lagf2" path="res://Scenes/Prefabs/LevelFinishDoor.tscn" id="1_ew58k"]
+[ext_resource type="PackedScene" uid="uid://b1r7aud6yuc57" path="res://Scenes/Levels/Dungeon_Level2.tscn" id="2_nfa4y"]
 [ext_resource type="PackedScene" uid="uid://w7m6tehvvy3g" path="res://Scenes/Prefabs/player.tscn" id="3_5au2k"]
 [ext_resource type="PackedScene" uid="uid://bfmh3fm2de78o" path="res://Scenes/Prefabs/Coin.tscn" id="4_jco3i"]
 [ext_resource type="Texture2D" uid="uid://jaegp53ccc7w" path="res://Assets/Spritesheet/platformPack_tilesheet.png" id="5_e55m0"]
 [ext_resource type="Texture2D" uid="uid://bm8lo374eo7p3" path="res://Assets/Spritesheet/Whimsy_Hallow_Dungeon_64px.png" id="8_cds21"]
 [ext_resource type="FontFile" uid="uid://qgc4vi5osk7v" path="res://Assets/Fonts/Star Choco.ttf" id="11_2qat5"]
+[ext_resource type="PackedScene" uid="uid://38uk18ri5m14" path="res://Scenes/Prefabs/LockBlock.tscn" id="11_52ko1"]
 [ext_resource type="Script" uid="uid://b3otwjimxlk6l" path="res://Scripts/GameManager.gd" id="12_h66k1"]
+[ext_resource type="PackedScene" uid="uid://bx7qrnqn8xftg" path="res://Scenes/Prefabs/key.tscn" id="12_ivgbk"]
 [ext_resource type="Script" uid="uid://b4cw5w8ycec5t" path="res://Scripts/GameUI.gd" id="13_a68ga"]
 [ext_resource type="Texture2D" uid="uid://clreg520jah1j" path="res://Assets/platformPack_item008.png" id="14_57mkq"]
 
@@ -18460,7 +18463,7 @@ sources/0 = SubResource("TileSetAtlasSource_rndpx")
 [node name="LevelFinishDoor" parent="." instance=ExtResource("1_ew58k")]
 z_index = 1
 position = Vector2(593, 1191)
-next_scene = null
+next_scene = ExtResource("2_nfa4y")
 
 [node name="Player" parent="." instance=ExtResource("3_5au2k")]
 z_index = 1
@@ -18595,3 +18598,10 @@ theme_override_constants/outline_size = 5
 theme_override_fonts/font = ExtResource("11_2qat5")
 theme_override_font_sizes/font_size = 32
 text = "HP 100"
+
+[node name="Key" parent="." instance=ExtResource("12_ivgbk")]
+position = Vector2(82, 599)
+
+[node name="LockBlock" parent="." instance=ExtResource("11_52ko1")]
+position = Vector2(1185, 925)
+scale = Vector2(0.595, 0.595)
