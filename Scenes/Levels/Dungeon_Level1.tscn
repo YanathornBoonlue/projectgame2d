@@ -1,9 +1,13 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 <<<<<<< Updated upstream
 [gd_scene load_steps=18 format=3 uid="uid://5rph48o2th62"]
 =======
 [gd_scene load_steps=17 format=3 uid="uid://5rph48o2th62"]
 >>>>>>> Stashed changes
+=======
+[gd_scene load_steps=15 format=3 uid="uid://5rph48o2th62"]
+>>>>>>> parent of 6fb6af9 (door,music,soundfx)
 =======
 [gd_scene load_steps=15 format=3 uid="uid://5rph48o2th62"]
 >>>>>>> parent of 6fb6af9 (door,music,soundfx)
@@ -17,11 +21,14 @@
 [ext_resource type="PackedScene" uid="uid://7qn8c2oocssd" path="res://Scenes/Prefabs/item.tscn" id="10_nfa4y"]
 [ext_resource type="FontFile" uid="uid://qgc4vi5osk7v" path="res://Assets/Fonts/Star Choco.ttf" id="11_2qat5"]
 <<<<<<< HEAD
+<<<<<<< HEAD
 <<<<<<< Updated upstream
 [ext_resource type="PackedScene" uid="uid://38uk18ri5m14" path="res://Scenes/Prefabs/LockBlock.tscn" id="11_52ko1"]
 =======
 [ext_resource type="Script" uid="uid://d2v4tysqylthr" path="res://Scripts/item.gd" id="11_y00sx"]
 >>>>>>> Stashed changes
+=======
+>>>>>>> parent of 6fb6af9 (door,music,soundfx)
 =======
 >>>>>>> parent of 6fb6af9 (door,music,soundfx)
 [ext_resource type="Script" uid="uid://b3otwjimxlk6l" path="res://Scripts/GameManager.gd" id="12_h66k1"]
@@ -18478,10 +18485,14 @@ sources/0 = SubResource("TileSetAtlasSource_rndpx")
 z_index = 1
 position = Vector2(593, 1191)
 <<<<<<< HEAD
+<<<<<<< HEAD
 <<<<<<< Updated upstream
 next_scene = ExtResource("2_nfa4y")
 =======
 >>>>>>> Stashed changes
+=======
+next_scene = null
+>>>>>>> parent of 6fb6af9 (door,music,soundfx)
 =======
 next_scene = null
 >>>>>>> parent of 6fb6af9 (door,music,soundfx)
@@ -18623,6 +18634,7 @@ theme_override_fonts/font = ExtResource("11_2qat5")
 theme_override_font_sizes/font_size = 32
 text = "HP 100"
 <<<<<<< HEAD
+<<<<<<< HEAD
 <<<<<<< Updated upstream
 
 [node name="Key" parent="." instance=ExtResource("12_ivgbk")]
@@ -18651,5 +18663,7 @@ position = Vector2(157, 96)
 scale = Vector2(0.7, 0.7)
 script = ExtResource("11_y00sx")
 >>>>>>> Stashed changes
+=======
+>>>>>>> parent of 6fb6af9 (door,music,soundfx)
 =======
 >>>>>>> parent of 6fb6af9 (door,music,soundfx)
