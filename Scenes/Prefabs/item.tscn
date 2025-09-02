@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://yaqbyk0r7w5i"]
+
+[ext_resource type="Script" uid="uid://oghwk0w7c76v" path="res://scene/item.gd" id="1_akoh1"]
+[ext_resource type="Texture2D" uid="uid://c28ngv34e5h5s" path="res://assets/15_burger.png" id="2_akoh1"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_akoh1"]
+radius = 24.0
+height = 64.0
+
+[node name="item" type="Area2D" groups=["items"]]
+script = ExtResource("1_akoh1")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("2_akoh1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_akoh1")
+
+[connection signal="area_entered" from="." to="." method="_on_body_entered"]

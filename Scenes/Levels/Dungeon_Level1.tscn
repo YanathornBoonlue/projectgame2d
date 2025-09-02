@@ -18455,7 +18455,7 @@ tile_size = Vector2i(64, 64)
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_rndpx")
 
-[node name="Level_01" type="Node2D"]
+[node name="Level_02" type="Node2D"]
 
 [node name="LevelFinishDoor" parent="." instance=ExtResource("1_ew58k")]
 z_index = 1

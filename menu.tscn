@@ -1,0 +1,37 @@
+[gd_scene load_steps=3 format=3 uid="uid://jsq86p0kmo8c"]
+
+[ext_resource type="FontFile" uid="uid://qgc4vi5osk7v" path="res://Assets/Fonts/Star Choco.ttf" id="1_lti8b"]
+[ext_resource type="Script" path="res://menu.gd" id="1_ouk20"]
+
+[node name="menu" type="Node2D"]
+script = ExtResource("1_ouk20")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Label" type="Label" parent="CanvasLayer"]
+offset_left = 326.0
+offset_top = 75.0
+offset_right = 845.0
+offset_bottom = 212.0
+theme_override_fonts/font = ExtResource("1_lti8b")
+theme_override_font_sizes/font_size = 100
+text = "Game Title"
+
+[node name="StartButton" type="Button" parent="CanvasLayer"]
+offset_left = 429.0
+offset_top = 242.0
+offset_right = 753.0
+offset_bottom = 371.0
+theme_override_font_sizes/font_size = 50
+text = "Start"
+
+[node name="ExitButton" type="Button" parent="CanvasLayer"]
+offset_left = 427.0
+offset_top = 402.0
+offset_right = 754.0
+offset_bottom = 547.0
+theme_override_font_sizes/font_size = 50
+text = "Exit"
+
+[connection signal="pressed" from="CanvasLayer/StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/ExitButton" to="." method="_on_exit_button_pressed"]
