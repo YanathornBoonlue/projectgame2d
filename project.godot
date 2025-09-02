@@ -23,6 +23,7 @@ config/icon="res://Icon.png"
 GameManager="*res://Scripts/GameManager.gd"
 SceneTransition="*res://Scenes/Managers/SceneTransition.tscn"
 AudioManager="*res://Scenes/Managers/AudioManager.tscn"
+MusicManager="*res://Scripts/MusicManager.gd"
 
 [display]
 

@@ -1,7 +1,7 @@
 [gd_scene load_steps=18 format=3 uid="uid://b1r7aud6yuc57"]
 
 [ext_resource type="PackedScene" uid="uid://cyti38f0lagf2" path="res://Scenes/Prefabs/LevelFinishDoor.tscn" id="1_ew58k"]
-[ext_resource type="PackedScene" uid="uid://bjb3dx2x4bocm" path="res://Scenes/Levels/Level_02.tscn" id="2_fitub"]
+[ext_resource type="PackedScene" uid="uid://bhjmohssyfuq2" path="res://Scenes/Levels/Dungeon_Level3.tscn" id="2_5dxbh"]
 [ext_resource type="PackedScene" uid="uid://w7m6tehvvy3g" path="res://Scenes/Prefabs/player.tscn" id="3_5au2k"]
 [ext_resource type="PackedScene" uid="uid://bfmh3fm2de78o" path="res://Scenes/Prefabs/Coin.tscn" id="4_jco3i"]
 [ext_resource type="Texture2D" uid="uid://jaegp53ccc7w" path="res://Assets/Spritesheet/platformPack_tilesheet.png" id="5_e55m0"]
@@ -18450,7 +18450,7 @@ sources/0 = SubResource("TileSetAtlasSource_rndpx")
 [node name="LevelFinishDoor" parent="." instance=ExtResource("1_ew58k")]
 z_index = 1
 position = Vector2(610, 1201)
-next_scene = ExtResource("2_fitub")
+next_scene = ExtResource("2_5dxbh")
 
 [node name="Player" parent="." instance=ExtResource("3_5au2k")]
 z_index = 1

@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://6wu1l8wlqffc"
+path="res://.godot/imported/Adel, Baron Of Night - Elden Ring Nightreign OST Official Soundtrack Original Score.mp3-bd099359e9c92977f787c249262585a9.mp3str"
+
+[deps]
+
+source_file="res://Assets/Sound/Adel, Baron Of Night - Elden Ring Nightreign OST Official Soundtrack Original Score.mp3"
+dest_files=["res://.godot/imported/Adel, Baron Of Night - Elden Ring Nightreign OST Official Soundtrack Original Score.mp3-bd099359e9c92977f787c249262585a9.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
