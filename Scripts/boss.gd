@@ -96,15 +96,22 @@ func _die() -> void:
 	alive = false
 	if is_instance_valid(attack_timer):
 		attack_timer.stop()
-
 	for n in get_tree().get_nodes_in_group("BossProjectiles"):
 		if is_instance_valid(n):
 			n.queue_free()
 
-	GameManager.add_score()
-	if anim: anim.visible = false
-	await get_tree().create_timer(1.0).timeout
-	hide()
+	# (ออปชัน) ซ่อนอนิเมชันบอส
+	if anim:
+		anim.visible = false
+
+	# เรียกหน้า Win
+	var ui := get_node_or_null("/root/WinUI")
+	if ui:
+		# ถ้ามีไฟล์เมนูเป็น PackedScene ลากเข้า export ของ WinUI ไว้แล้วก็ไม่ต้องส่ง
+		ui.call_deferred("show_you_win")   # หรือ ui.call_deferred("show_you_win", preload("res://Scenes/Prefabs/menu.tscn"))
+	else:
+		# สำรอง: เปลี่ยนฉากตรง ๆ
+		get_tree().call_deferred("change_scene_to_file", "res://Scenes/Prefabs/menu.tscn")
 
 func _on_hit_by_player(dmg: int) -> void:
 	take_damage(dmg)

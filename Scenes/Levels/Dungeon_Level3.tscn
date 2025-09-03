@@ -18633,9 +18633,6 @@ position = Vector2(1391, 700)
 scale = Vector2(0.7, 0.604)
 collision_layer = 1
 attack_interval = 2.5
-purple_cast_sfx = null
-skull_cast_sfx = null
-dead_cast_sfx = null
 
 [node name="HealSpawner" type="Node2D" parent="."]
 script = ExtResource("12_xaqwk")
