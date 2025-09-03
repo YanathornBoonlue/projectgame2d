@@ -262,8 +262,7 @@ script = ExtResource("1_4snmv")
 position = Vector2(1, 7)
 scale = Vector2(0.2, 0.2)
 sprite_frames = SubResource("SpriteFrames_l4gnj")
-animation = &"Swamp"
-frame_progress = 0.576995
+animation = &"Fly"
 speed_scale = 2.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
