@@ -2,10 +2,10 @@
 
 [ext_resource type="Script" uid="uid://cxvp18swq6d02" path="res://Scripts/player.gd" id="1_qt7d6"]
 [ext_resource type="Texture2D" uid="uid://dxbibuqe0kh0l" path="res://Assets/Spritesheet/Blue-Blob-Idle 1.png" id="2_ak25i"]
-[ext_resource type="PackedScene" path="res://Scenes/Prefabs/HolyThunderBolt.tscn" id="2_eejau"]
+[ext_resource type="PackedScene" uid="uid://caudrqb8ymdy" path="res://Scenes/Prefabs/HolyThunderBolt.tscn" id="2_eejau"]
 [ext_resource type="Texture2D" uid="uid://dxp77wq60c2rr" path="res://Assets/Textures/CloudTexture.png" id="3_8vxmb"]
 [ext_resource type="Texture2D" uid="uid://6ks0wy7qe6p3" path="res://Assets/Spritesheet/Blue-Blob-Idle 3.png" id="3_fdt7q"]
-[ext_resource type="PackedScene" path="res://Scenes/Prefabs/UltimateHolyImpact.tscn" id="3_rc3i2"]
+[ext_resource type="PackedScene" uid="uid://yk4lw8pxxc2t" path="res://Scenes/Prefabs/UltimateHolyImpact.tscn" id="3_rc3i2"]
 [ext_resource type="PackedScene" uid="uid://d24pmgsqloknn" path="res://Scenes/Prefabs/yanathorn.tscn" id="4_0ctox"]
 [ext_resource type="Texture2D" uid="uid://cudkd6ckheg1k" path="res://Assets/Spritesheet/Blue-Blob-Idle 4.png" id="4_k7ict"]
 [ext_resource type="Texture2D" uid="uid://dvypnj7i80t7y" path="res://Assets/Spritesheet/Blue-Blob-Jump 1.png" id="5_qapsg"]

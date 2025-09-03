@@ -1,6 +1,7 @@
-[gd_scene load_steps=21 format=3 uid="uid://hn68lto51mi3"]
+[gd_scene load_steps=22 format=3 uid="uid://yk4lw8pxxc2t"]
 
 [ext_resource type="Script" uid="uid://fby21fqiildj" path="res://Scripts/UltimateHolyImpact.gd" id="1_l3gmm"]
+[ext_resource type="AudioStream" uid="uid://dwwrb0mk6cm7w" path="res://Assets/Sound/FX/holy.wav" id="2_fap7c"]
 [ext_resource type="Texture2D" uid="uid://cvtt4xb3ipdnx" path="res://Assets/Textures/Holy VFX 02.png" id="2_mli7g"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_fap7c"]
@@ -129,6 +130,8 @@ size = Vector2(29, 45)
 [node name="UltimateHolyImpact" type="Area2D"]
 scale = Vector2(7, 7)
 script = ExtResource("1_l3gmm")
+impact_sfx = ExtResource("2_fap7c")
+impact_sfx_volume_db = -5.0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_ggavs")

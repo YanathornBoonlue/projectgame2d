@@ -1,6 +1,7 @@
-[gd_scene load_steps=24 format=3 uid="uid://cd0cqsr6mjm52"]
+[gd_scene load_steps=25 format=3 uid="uid://caudrqb8ymdy"]
 
 [ext_resource type="Script" uid="uid://dmxqw7g2hc0w6" path="res://Scripts/HolyThunderBolt.gd" id="1_hrpyv"]
+[ext_resource type="AudioStream" uid="uid://dp8t4sct61bxc" path="res://Assets/Sound/FX/torch.wav" id="2_rbeaw"]
 [ext_resource type="Texture2D" uid="uid://cohqsvee0102v" path="res://Assets/Textures/Holy VFX 01 Initial.png" id="2_rmkfb"]
 [ext_resource type="Texture2D" uid="uid://b7ntx37o54kx5" path="res://Assets/Textures/Holy VFX 01 Repeatable.png" id="3_rbeaw"]
 [ext_resource type="Texture2D" uid="uid://nk8r4fcl11bp" path="res://Assets/Textures/Holy VFX 01 Impact.png" id="4_rmkfb"]
@@ -143,6 +144,7 @@ height = 26.0
 
 [node name="HolyThunderBolt" type="Area2D"]
 script = ExtResource("1_hrpyv")
+launch_sfx = ExtResource("2_rbeaw")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_d5l6y")
