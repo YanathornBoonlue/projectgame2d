@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://b1r7aud6yuc57" path="res://Scenes/Levels/Dungeon_Level2.tscn" id="2_nfa4y"]
 [ext_resource type="PackedScene" uid="uid://w7m6tehvvy3g" path="res://Scenes/Prefabs/player.tscn" id="3_5au2k"]
 [ext_resource type="Texture2D" uid="uid://jaegp53ccc7w" path="res://Assets/Spritesheet/platformPack_tilesheet.png" id="5_e55m0"]
-[ext_resource type="PackedScene" path="res://Scenes/Prefabs/arrow_launcher.tscn" id="7_543fl"]
+[ext_resource type="PackedScene" uid="uid://c7rrpo4ibyqck" path="res://Scenes/Prefabs/arrow_launcher.tscn" id="7_543fl"]
 [ext_resource type="Texture2D" uid="uid://bm8lo374eo7p3" path="res://Assets/Spritesheet/Whimsy_Hallow_Dungeon_64px.png" id="8_cds21"]
 [ext_resource type="Texture2D" uid="uid://dqqbvl6fqnt8l" path="res://Assets/Items/Icon38.png" id="9_8g05a"]
 [ext_resource type="PackedScene" uid="uid://7qn8c2oocssd" path="res://Scenes/Prefabs/item.tscn" id="10_nfa4y"]
@@ -14,7 +14,7 @@
 [ext_resource type="Script" uid="uid://b3otwjimxlk6l" path="res://Scripts/GameManager.gd" id="12_h66k1"]
 [ext_resource type="PackedScene" uid="uid://0y3nblokrvjy" path="res://Scenes/Prefabs/key.tscn" id="12_ivgbk"]
 [ext_resource type="Script" uid="uid://b4cw5w8ycec5t" path="res://Scripts/GameUI.gd" id="13_a68ga"]
-[ext_resource type="PackedScene" path="res://Scenes/Prefabs/trap_suriken.tscn" id="15_vl7xl"]
+[ext_resource type="PackedScene" uid="uid://ckh3r41v3qe7b" path="res://Scenes/Prefabs/trap_suriken.tscn" id="15_vl7xl"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_gs0qk"]
 texture = ExtResource("5_e55m0")

@@ -19,6 +19,7 @@ offset_right = 469.0
 offset_bottom = 299.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 texture = ExtResource("3_jxe8c")
 
 [node name="Sfx" type="AudioStreamPlayer" parent="."]
