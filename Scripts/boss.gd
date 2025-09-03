@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 @export var sprite: String = "Agis Idle"
-@export var attack_interval: float = 2.0
+@export var attack_interval: float = 2.5
 
 # HP
 @export var max_hp: int = 500
@@ -35,6 +35,15 @@ var hp: int
 
 @export var dead_spawn_radius: float = 400.0   # ระยะจากผู้เล่นที่สปอน
 @export var dead_charge_speed: float = 600.0   # ความเร็วผีวิ่งเข้า
+
+@export var purple_cast_sfx: AudioStream
+@export var purple_cast_sfx_volume_db: float = 5
+
+@export var skull_cast_sfx: AudioStream
+@export var skull_cast_sfx_volume_db: float = 5
+
+@export var dead_cast_sfx: AudioStream
+@export var dead_cast_sfx_volume_db: float = 5
 
 
 var alive: bool = true
@@ -109,6 +118,7 @@ func _on_hit_by_player(dmg: int) -> void:
 func _cast_skull_spell() -> void:
 	if skull_spell_scene == null:
 		return
+	_play_skull_cast_sfx(global_position)
 	await _cast_skull_barrage()
 	
 func _cast_skull_barrage() -> void:
@@ -212,6 +222,8 @@ func _cast_dead_spell() -> void:
 	var pl: Node2D = _get_player()
 	var center: Vector2 = (pl.global_position if (pl != null and is_instance_valid(pl)) else global_position)
 
+	_play_dead_cast_sfx(center)
+
 	var angles_deg: Array[float] = [45.0, 135.0, 225.0, 315.0]
 	for ang: float in angles_deg:
 		var start_pos: Vector2 = center + Vector2.RIGHT.rotated(deg_to_rad(ang)) * dead_spawn_radius
@@ -227,6 +239,12 @@ func _cast_dead_spell() -> void:
 func _spawn_single_purple_fireball(spawn_x: float, top_y: float) -> void:
 	if purple_fire_ball_scene == null:
 		return
+		
+	var spawn_pos: Vector2 = Vector2(spawn_x, top_y)
+	
+	# 🔊 เล่นเสียงปล่อยสกิล + (ถ้ามี) สปอน VFX
+	_play_purple_cast_sfx(spawn_pos)
+		
 	# อินสแตนซ์และตั้งค่าพื้นฐาน
 	var spell: Node2D = purple_fire_ball_scene.instantiate() as Node2D
 	get_parent().add_child(spell)
@@ -247,6 +265,72 @@ func _spawn_single_purple_fireball(spawn_x: float, top_y: float) -> void:
 	if ha != null and ha is Area2D:
 		_configure_area_layer_mask(ha as Area2D, 4, [1])
 
+func _play_skull_cast_sfx(at_pos: Vector2) -> void:
+	if skull_cast_sfx == null:
+		return
+	var p := AudioStreamPlayer2D.new()
+	p.stream = skull_cast_sfx
+	p.volume_db = skull_cast_sfx_volume_db
+	p.bus = "SFX"
+	p.global_position = at_pos
+	get_tree().current_scene.add_child(p)
+	p.play()
+	if p.has_signal("finished"):
+		p.finished.connect(Callable(p, "queue_free"))
+	else:
+		var dur := 1.0
+		if p.stream != null and p.stream.has_method("get_length"):
+			dur = max(0.1, p.stream.get_length())
+		var t := get_tree().create_timer(dur + 0.1)
+		t.timeout.connect(Callable(p, "queue_free"))
+
+
+func _play_purple_cast_sfx(at_pos: Vector2) -> void:
+	if purple_cast_sfx == null:
+		return
+	var p := AudioStreamPlayer2D.new()
+	p.stream = purple_cast_sfx
+	p.volume_db = purple_cast_sfx_volume_db
+	p.bus = "SFX"
+	p.global_position = at_pos
+	get_tree().current_scene.add_child(p)
+	p.play()
+	if p.has_signal("finished"):
+		p.finished.connect(Callable(p, "queue_free"))
+	else:
+		var dur := 1.0
+		if p.stream != null and p.stream.has_method("get_length"):
+			dur = max(0.1, p.stream.get_length())
+		var t := get_tree().create_timer(dur + 0.1)
+		t.timeout.connect(Callable(p, "queue_free"))
+
+
+func _play_dead_cast_sfx(at_pos: Vector2) -> void:
+	if dead_cast_sfx == null:
+		return
+	var p := AudioStreamPlayer2D.new()
+	p.stream = dead_cast_sfx
+	p.volume_db = dead_cast_sfx_volume_db
+	p.bus = "SFX"
+	p.global_position = at_pos
+	get_tree().current_scene.add_child(p)
+
+	# ปิดลูป (บาง stream รองรับ)
+	if p.stream != null:
+		if p.stream.has_method("set_loop"):
+			p.stream.call("set_loop", false)
+		elif p.stream.has_method("set_loop_mode"):
+			p.stream.call("set_loop_mode", 0)
+
+	p.play()
+	if p.has_signal("finished"):
+		p.finished.connect(Callable(p, "queue_free"))
+	else:
+		var dur := 1.2
+		if p.stream != null and p.stream.has_method("get_length"):
+			dur = max(0.1, p.stream.get_length())
+		var t := get_tree().create_timer(dur + 0.1)
+		t.timeout.connect(Callable(p, "queue_free"))
 
 # ---------- Helpers ----------
 func _get_player() -> Node2D:

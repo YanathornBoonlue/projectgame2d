@@ -1,6 +1,6 @@
 extends Area2D
 
-@export var damage: int = 20
+@export var damage: int = 10
 @export var charge_speed: float = 520.0
 @export var life_time: float = 2.0
 @export var hit_radius: float = 18.0
