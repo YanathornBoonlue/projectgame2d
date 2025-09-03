@@ -81,3 +81,14 @@ func _kill_fade() -> void:
 	if _fade_tween != null and _fade_tween.is_valid():
 		_fade_tween.kill()
 		_fade_tween = null
+
+func fade_out_and_stop(dur: float = 0.6) -> void:
+	if _player and _player.playing:
+		_kill_fade()
+		_fade_tween = create_tween()
+		_fade_tween.tween_property(_player, "volume_db", -40.0, dur)
+		_fade_tween.finished.connect(func() -> void:
+			_player.stop()
+			_last_stream_path = ""
+		)
+		

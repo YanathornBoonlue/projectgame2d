@@ -8,6 +8,8 @@
 scale = Vector2(0.73, 0.73)
 transform = Transform2D(0.73, 0, 0, 0.73, 0, 0)
 script = ExtResource("1_i6r70")
+sfx_stream = ExtResource("4_l5uqf")
+sfx_volume_db = 5.0
 
 [node name="TextureRect" type="TextureRect" parent="."]
 anchors_preset = 15
