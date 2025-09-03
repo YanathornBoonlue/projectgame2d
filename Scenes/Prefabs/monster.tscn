@@ -232,7 +232,7 @@ animations = [{
 "texture": ExtResource("55_bwrfg")
 }],
 "loop": true,
-"name": &"Worm",
+"name": &"Swamp",
 "speed": 5.0
 }]
 
@@ -262,8 +262,8 @@ script = ExtResource("1_4snmv")
 position = Vector2(1, 7)
 scale = Vector2(0.2, 0.2)
 sprite_frames = SubResource("SpriteFrames_l4gnj")
-animation = &"Dino"
-frame_progress = 0.507289
+animation = &"Swamp"
+frame_progress = 0.576995
 speed_scale = 2.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
