@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=3 uid="uid://sl3rawaxpq0l"]
+[gd_scene load_steps=61 format=3 uid="uid://sl3rawaxpq0l"]
 
 [ext_resource type="Script" uid="uid://c630gmehkudie" path="res://Scripts/monster.gd" id="1_4snmv"]
 [ext_resource type="Texture2D" uid="uid://wuyveleeuj8w" path="res://Assets/Spritesheet/0_Monster_Fly_000.png" id="2_4uecc"]
@@ -37,6 +37,24 @@
 [ext_resource type="Texture2D" uid="uid://ppxf6exjlbhf" path="res://Assets/Spritesheet/0_Monster_Walking_015.png" id="35_gq36l"]
 [ext_resource type="Texture2D" uid="uid://0c8mljxwog7u" path="res://Assets/Spritesheet/0_Monster_Walking_016.png" id="36_3cpcp"]
 [ext_resource type="Texture2D" uid="uid://bwc6trx1rs454" path="res://Assets/Spritesheet/0_Monster_Walking_017.png" id="37_2ia6g"]
+[ext_resource type="Texture2D" uid="uid://kd410e5jc082" path="res://Assets/Spritesheet/Swamp_Monster_Fly_000.png" id="38_kldx0"]
+[ext_resource type="Texture2D" uid="uid://g2xk6mtob6lh" path="res://Assets/Spritesheet/Swamp_Monster_Fly_001.png" id="39_djenx"]
+[ext_resource type="Texture2D" uid="uid://dowl0qsbbs5ql" path="res://Assets/Spritesheet/Swamp_Monster_Fly_002.png" id="40_gbukj"]
+[ext_resource type="Texture2D" uid="uid://66jdn1uct4hp" path="res://Assets/Spritesheet/Swamp_Monster_Fly_003.png" id="41_120d0"]
+[ext_resource type="Texture2D" uid="uid://datwhgvsu15us" path="res://Assets/Spritesheet/Swamp_Monster_Fly_004.png" id="42_vd6x1"]
+[ext_resource type="Texture2D" uid="uid://cerut824s8plk" path="res://Assets/Spritesheet/Swamp_Monster_Fly_005.png" id="43_t5f6g"]
+[ext_resource type="Texture2D" uid="uid://7jnol4dxfhik" path="res://Assets/Spritesheet/Swamp_Monster_Fly_006.png" id="44_q1w5q"]
+[ext_resource type="Texture2D" uid="uid://cbkxyil63kefi" path="res://Assets/Spritesheet/Swamp_Monster_Fly_007.png" id="45_l4gln"]
+[ext_resource type="Texture2D" uid="uid://dvr8twbq1rswe" path="res://Assets/Spritesheet/Swamp_Monster_Fly_008.png" id="46_ljdnn"]
+[ext_resource type="Texture2D" uid="uid://cfa0a7mukd8sr" path="res://Assets/Spritesheet/Swamp_Monster_Fly_009.png" id="47_do3ra"]
+[ext_resource type="Texture2D" uid="uid://fh6peivhju7m" path="res://Assets/Spritesheet/Swamp_Monster_Fly_010.png" id="48_qws80"]
+[ext_resource type="Texture2D" uid="uid://cd7j4khpekdcn" path="res://Assets/Spritesheet/Swamp_Monster_Fly_011.png" id="49_ri5gx"]
+[ext_resource type="Texture2D" uid="uid://d12chykc2ec0y" path="res://Assets/Spritesheet/Swamp_Monster_Fly_012.png" id="50_0u36x"]
+[ext_resource type="Texture2D" uid="uid://0bqn8fossaid" path="res://Assets/Spritesheet/Swamp_Monster_Fly_013.png" id="51_x40v1"]
+[ext_resource type="Texture2D" uid="uid://cjngca2qxmai8" path="res://Assets/Spritesheet/Swamp_Monster_Fly_014.png" id="52_184i5"]
+[ext_resource type="Texture2D" uid="uid://bgf7icc0txrkr" path="res://Assets/Spritesheet/Swamp_Monster_Fly_015.png" id="53_ejni7"]
+[ext_resource type="Texture2D" uid="uid://7uva2lt66bu7" path="res://Assets/Spritesheet/Swamp_Monster_Fly_016.png" id="54_vmb0s"]
+[ext_resource type="Texture2D" uid="uid://8xx85ln7oi50" path="res://Assets/Spritesheet/Swamp_Monster_Fly_017.png" id="55_bwrfg"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_l4gnj"]
 animations = [{
@@ -158,7 +176,61 @@ animations = [{
 "name": &"Fly",
 "speed": 5.0
 }, {
-"frames": [],
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("38_kldx0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("39_djenx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("40_gbukj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("41_120d0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("42_vd6x1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("43_t5f6g")
+}, {
+"duration": 1.0,
+"texture": ExtResource("44_q1w5q")
+}, {
+"duration": 1.0,
+"texture": ExtResource("45_l4gln")
+}, {
+"duration": 1.0,
+"texture": ExtResource("46_ljdnn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("47_do3ra")
+}, {
+"duration": 1.0,
+"texture": ExtResource("48_qws80")
+}, {
+"duration": 1.0,
+"texture": ExtResource("49_ri5gx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("50_0u36x")
+}, {
+"duration": 1.0,
+"texture": ExtResource("51_x40v1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("52_184i5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("53_ejni7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("54_vmb0s")
+}, {
+"duration": 1.0,
+"texture": ExtResource("55_bwrfg")
+}],
 "loop": true,
 "name": &"Worm",
 "speed": 5.0
@@ -190,8 +262,9 @@ script = ExtResource("1_4snmv")
 position = Vector2(1, 7)
 scale = Vector2(0.2, 0.2)
 sprite_frames = SubResource("SpriteFrames_l4gnj")
-animation = &"Worm"
-speed_scale = 1.5
+animation = &"Dino"
+frame_progress = 0.507289
+speed_scale = 2.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(4.76837e-07, 10)
