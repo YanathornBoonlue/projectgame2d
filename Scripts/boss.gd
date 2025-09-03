@@ -4,7 +4,7 @@ extends CharacterBody2D
 @export var attack_interval: float = 2.5
 
 # HP
-@export var max_hp: int = 2500
+@export var max_hp: int = 3500
 var hp: int
 
 # packed scenes

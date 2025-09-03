@@ -149,7 +149,6 @@ launch_sfx = ExtResource("2_rbeaw")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_d5l6y")
 animation = &"Impact"
-frame_progress = 0.897458
 metadata/_edit_lock_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

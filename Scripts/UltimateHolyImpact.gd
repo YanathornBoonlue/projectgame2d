@@ -1,7 +1,7 @@
 extends Area2D
 
-@export var damage: int = 250
-@export var radius: float = 220.0
+@export var damage: int = 150
+@export var radius: float = 150
 @export var anim_name: String = "Impact"
 
 # --- SFX (ตอนใช้สกิล) ---

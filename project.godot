@@ -78,6 +78,7 @@ Ultimate={
 2d_physics/layer_4="BossAttack"
 2d_physics/layer_5="Attack"
 2d_physics/layer_6="PlayerAttack"
+2d_physics/layer_7="Monster"
 <<<<<<<Updatedupstream2d_physics/layer_2="World"
 
 [rendering]

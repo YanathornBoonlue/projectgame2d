@@ -1,7 +1,7 @@
 extends Area2D
 
 @export var speed: float = 900.0
-@export var damage: int = 20
+@export var damage: int = 10
 @export var life_time: float = 1.8
 @export var align_rotation: bool = true
 var direction: int = 1
@@ -20,17 +20,25 @@ var _exploding: bool = false
 func _ready() -> void:
 	add_to_group("PlayerProjectiles")
 
-	# เปิดชนและกำหนดเลเยอร์: 6=PlayerAttack ยิงชน Boss(3) + World(2)
 	monitoring = true
 	monitorable = true
 	if not body_entered.is_connected(_on_body_entered):
 		body_entered.connect(_on_body_entered)
-	for i: int in range(1, 33):
+	#for i: int in range(1, 33):
+
+	# เคลียร์ก่อน
+	for i in range(1, 33):
 		set_collision_layer_value(i, false)
 		set_collision_mask_value(i, false)
+
+	# Layer = PlayerAttack(6)
 	set_collision_layer_value(6, true)
-	set_collision_mask_value(3, true)
+
+	# Mask ชน: World(2) + Boss(3) + Monster(7)
+	# (ถ้าโปรเจกต์คุณใช้เลขอื่นแทน Monster ให้แก้ 7 ให้ตรง)
 	set_collision_mask_value(2, true)
+	set_collision_mask_value(3, true)
+	set_collision_mask_value(7, true)
 
 	# เล่นอนิเมชันบิน
 	if anim:
@@ -57,7 +65,7 @@ func _on_body_entered(b: Node) -> void:
 	if _exploding:
 		return
 
-	# ทำดาเมจบอส
+	# ยิงใส่สิ่งที่มี take_damage() (มอนสเตอร์/บอส)
 	if b.has_method("take_damage"):
 		b.call("take_damage", damage)
 	elif b.is_in_group("Boss") and b.has_method("_on_hit_by_player"):
@@ -67,11 +75,13 @@ func _on_body_entered(b: Node) -> void:
 	call_deferred("_play_impact_and_free")
 
 func _play_impact_and_free() -> void:
+	# ปิดชนแบบ deferred กัน flush error
 	set_deferred("monitoring", false)
 	set_deferred("collision_layer", 0)
 	set_deferred("collision_mask", 0)
 	if colshape:
 		colshape.set_deferred("disabled", true)
+
 	for c in get_children():
 		if c is Area2D:
 			c.set_deferred("monitoring", false)
@@ -79,6 +89,7 @@ func _play_impact_and_free() -> void:
 			if cs:
 				cs.set_deferred("disabled", true)
 
+	# เล่น Impact แล้วค่อยลบ
 	if anim and anim.sprite_frames and anim.sprite_frames.has_animation("Impact"):
 		anim.play("Impact")
 		await anim.animation_finished

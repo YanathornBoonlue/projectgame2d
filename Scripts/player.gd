@@ -52,7 +52,7 @@ func _physics_process(delta: float) -> void:
 	if GameManager.hp <= 0 and not is_dying:
 		GameManager.hp = 0
 		death_particles.emitting = true
-		death_tween()  # ใช้เวอร์ชันที่เรียก UI
+		death_tween()
 
 	# ตกแมพ
 	if global_position.y > fall_limit and not is_dying:
@@ -67,7 +67,7 @@ func _physics_process(delta: float) -> void:
 
 	# อัลติ
 	_ulti_cd = max(_ulti_cd - delta, 0.0)
-	if InputMap.has_action(ULT_ACTION) and Input.is_action_just_pressed(ULT_ACTION):
+	if _ulti_cd <= 0.0 and InputMap.has_action(ULT_ACTION) and Input.is_action_just_pressed(ULT_ACTION):
 		_try_use_ultimate()
 
 # --------- MOVEMENT ---------- #
@@ -144,31 +144,33 @@ func _shoot() -> void:
 
 	_shot_cd = shot_cooldown
 
-# --------- ULTIMATE (เกิดบนตัวบอสที่ใกล้ที่สุด) ---------- #
+# --------- ULTIMATE (ใช้ได้แม้ไม่มีบอส) ---------- #
 func _try_use_ultimate() -> void:
 	if is_dying or _ulti_cd > 0.0 or ultimate_scene == null:
 		return
 
-	# หา "บอสที่ใกล้ที่สุด" ก่อน ถ้าไม่เจอจะไม่ใช้ของ
-	var target := _get_nearest_boss()
-	if target == null:
-		return
-
-	# มีบอสแล้วค่อยหักจำนวนไอเท็ม
+	# ✅ หักจำนวนก่อน (จะได้ลดเสมอถ้ามีของ)
 	if not GameManager.consume_ultimate():
 		return
 
-	# สร้างเอฟเฟ็กต์บนตำแหน่งบอส (ให้เป็นลูกของพาเรนต์เดียวกัน)
-	var fx := ultimate_scene.instantiate() as Node2D
-	target.get_parent().add_child(fx)
-	fx.global_position = target.global_position
+	# เลือกตำแหน่งจะเกิดสกิล: ถ้ามีบอส → บนตัวบอส, ถ้าไม่มี → บนตัวผู้เล่น
+	var spawn_pos: Vector2 = global_position
+	var target := _get_nearest_boss()
+	if target != null:
+		spawn_pos = target.global_position
 
-	# ส่งพารามิเตอร์ (ถ้าซีน Ultimate รับไว้)
+	# สร้างเอฟเฟ็กต์
+	var fx := ultimate_scene.instantiate() as Node2D
+	get_parent().add_child(fx)
+	fx.global_position = spawn_pos
+
+	# ส่งพารามิเตอร์ (ถ้าซีน Ultimate รองรับ)
 	if "ultimate_damage" in GameManager:
 		fx.set("damage", GameManager.ultimate_damage)
 	if "ultimate_radius" in GameManager:
 		fx.set("radius", GameManager.ultimate_radius)
 
+	# คูลดาวน์
 	_ulti_cd = ultimate_cooldown
 
 func _get_nearest_boss() -> Node2D:
@@ -176,7 +178,6 @@ func _get_nearest_boss() -> Node2D:
 	var best: float = 1e20
 	for n in get_tree().get_nodes_in_group("Boss"):
 		if n is Node2D:
-			# ข้ามบอสที่ตายแล้ว ถ้ามีฟิลด์ alive
 			if "alive" in n and not n.alive:
 				continue
 			var pos: Vector2 = (n as Node2D).global_position
@@ -200,7 +201,6 @@ func death_tween() -> void:
 	if ui:
 		ui.call("show_you_died")
 	else:
-		# fallback ถ้า UI ยังไม่พร้อม
 		GameManager.respawn_player()
 
 func respawn_tween() -> void:
@@ -214,8 +214,6 @@ func jump_tween() -> void:
 	tween.tween_property(self, "scale", Vector2.ONE, 0.1)
 
 # --------- SIGNALS (DAMAGE) ---------- #
-# รวมพฤติกรรมจากไฟล์ .txt: cooldown โดนดาเมจ, ฆ่าทันทีเมื่อชน "Traps Dead",
-# ปิดคอลลิชันและเรียก UI ผ่าน _begin_death()
 func _on_collision_body_entered(body: Node) -> void:
 	if is_dying:
 		return
@@ -225,7 +223,7 @@ func _on_collision_body_entered(body: Node) -> void:
 			return
 		can_take_damage = false
 
-		GameManager.damage(20)    # ค่าจากเวอร์ชันใน .txt
+		GameManager.damage(20)
 		death_particles.emitting = true
 
 		if GameManager.hp <= 0:
@@ -243,7 +241,6 @@ func _begin_death() -> void:
 	is_dying = true
 	can_take_damage = false
 
-	# ปิดคอลลิชัน + ฟิสิกส์
 	_disable_collisions_deferred()
 	set_physics_process(false)
 	set_process(false)
@@ -252,14 +249,12 @@ func _begin_death() -> void:
 		AudioManager.death_sfx.play()
 	death_particles.emitting = true
 
-	# ย่อแล้วซ่อน
 	var tw := create_tween()
 	tw.tween_property(self, "scale", Vector2.ZERO, 0.15)
 	await tw.finished
 	hide()
 	await get_tree().process_frame
 
-	# ส่งต่อให้ UI
 	var ui := get_node_or_null("/root/GameOverUI")
 	if ui:
 		ui.call("show_you_died")

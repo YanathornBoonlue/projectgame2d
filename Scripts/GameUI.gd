@@ -1,25 +1,31 @@
 extends Control
 
-@onready var score_texture = %Score/ScoreTexture
-@onready var score_label   = %Score/ScoreLabel
-@onready var hp_label: Label = %Score/HPLabel
-@onready var boss_hp_bar: TextureProgressBar = null
+@onready var score_texture: TextureRect = %Score/ScoreTexture
+@onready var score_label:   Label       = %Score/ScoreLabel
+@onready var hp_label:      Label       = %Score/HPLabel
+@onready var boss_hp_bar:   TextureProgressBar = %BossHPBar if has_node("%BossHPBar") else null
 
 var _boss: Node = null
 var _hp_tween: Tween = null
 var _last_boss_hp: int = -1
 
 func _ready() -> void:
-	# หา BossHPBar แบบปลอดภัย (ไม่มี ?:)
-	if has_node("%BossHPBar"):
-		boss_hp_bar = %BossHPBar
+	# ฟังจำนวนไอเท็ม (ultimate) เปลี่ยน แล้วตั้งค่าเริ่มต้นให้ ScoreLabel
+	if not GameManager.ultimate_charges_changed.is_connected(_on_ult_changed):
+		GameManager.ultimate_charges_changed.connect(_on_ult_changed)
+	_on_ult_changed(GameManager.ultimate_charges)
+
+	# ตั้งค่าเริ่มต้นอื่น ๆ
+	hp_label.text = "HP %d" % GameManager.hp
+	if boss_hp_bar:
 		boss_hp_bar.visible = false
 	_find_boss_and_setup()
 
 func _process(_delta: float) -> void:
-	score_label.text = "x %d" % GameManager.score
-	hp_label.text    = "HP %d" % GameManager.hp
+	# แสดง HP ปัจจุบัน
+	hp_label.text = "HP %d" % GameManager.hp
 
+	# อัปเดตแถบเลือดบอสเมื่อมีการเปลี่ยนแปลง
 	if not boss_hp_bar:
 		return
 
@@ -31,7 +37,12 @@ func _process(_delta: float) -> void:
 		_last_boss_hp = current
 		_update_boss_bar(current)
 
-# ================= helpers =================
+# ===== helpers =====
+
+func _on_ult_changed(n: int) -> void:
+	# ใช้ ScoreLabel แสดงจำนวนไอเท็ม (ultimate)
+	if is_instance_valid(score_label):
+		score_label.text = "x %d" % n
 
 func _find_boss_and_setup() -> void:
 	_boss = null
@@ -58,9 +69,9 @@ func _update_boss_bar(value: int) -> void:
 	if not boss_hp_bar:
 		return
 
-	var show := value > 0 and boss_hp_bar.max_value > 0
-	boss_hp_bar.visible = show
-	if not show:
+	var should_show: bool = value > 0 and boss_hp_bar.max_value > 0
+	boss_hp_bar.visible = should_show
+	if not should_show:
 		return
 
 	if is_instance_valid(_hp_tween):

@@ -131,7 +131,6 @@ size = Vector2(29, 45)
 scale = Vector2(7, 7)
 script = ExtResource("1_l3gmm")
 impact_sfx = ExtResource("2_fap7c")
-impact_sfx_volume_db = -5.0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_ggavs")
