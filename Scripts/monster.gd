@@ -7,6 +7,11 @@ var time_run := 0.0
 var alive := true
 var just_spawned := true
 
+# ==== SFX ====
+@export var boom_sfx: AudioStream        # ← ลาก Boom2.wav ลงช่องนี้ใน Inspector
+@export var boom_sfx_volume_db: float = 0.0
+@export var boom_bus: String = "SFX"     # ชื่อ Audio Bus ที่จะเล่น (แก้ได้ตามโปรเจกต์)
+
 @onready var explosion: GPUParticles2D = $explosion
 @onready var head_shape: CollisionShape2D = $HeadArea/CollisionShape2D
 @onready var hit_shape: CollisionShape2D  = $HitArea/CollisionShape2D
@@ -85,6 +90,10 @@ func death():
 	if not alive: return
 	alive = false
 	GameManager.add_score()
+
+	# 🔊 เล่นเสียงระเบิดแบบ one-shot ที่ตำแหน่งมอนสเตอร์
+	_play_boom_sfx()
+
 	explosion.emitting = true
 	spr.visible = false
 	if is_instance_valid(hit_shape):  hit_shape.set_deferred("disabled", true)
@@ -121,7 +130,7 @@ func _set_body_layer_and_mask() -> void:
 	# ต้อง "มองเห็น" World(2) เพื่อชนกำแพง/พื้น
 	set_collision_mask_value(2, true)    # World
 
-	# ✅ ตามที่ขอ: ให้มอนสเตอร์มีคอลลิชันกับ Player (ถ้าต้องการชนตัวกัน)
+	# ✅ ให้มอนสเตอร์มีคอลลิชันกับ Player (ถ้าต้องการชนตัวกัน)
 	set_collision_mask_value(1, true)    # Player
 
 # ถ้าไม่มี CollisionShape2D หรือถูกปิด/ไม่มี shape → สร้างให้
@@ -135,3 +144,25 @@ func _ensure_main_shape() -> void:
 		rect.size = Vector2(16, 16)
 		main_shape.shape = rect
 	main_shape.set_deferred("disabled", false)
+
+# ===== SFX helper =====
+func _play_boom_sfx() -> void:
+	if boom_sfx == null:
+		return
+	var p := AudioStreamPlayer2D.new()
+	p.stream = boom_sfx
+	p.volume_db = boom_sfx_volume_db
+	p.bus = boom_bus
+	p.global_position = global_position
+	# เพิ่มเข้าไปที่ root ของซีน เพื่อไม่ถูกลบทิ้งพร้อมมอนสเตอร์
+	get_tree().current_scene.add_child(p)
+	p.play()
+
+	# ลบตัวเล่นเสียงเมื่อเล่นจบ
+	if p.has_signal("finished"):
+		p.finished.connect(Callable(p, "queue_free"))
+	else:
+		var dur := 1.0
+		if p.stream != null and p.stream.has_method("get_length"):
+			dur = max(0.1, p.stream.get_length())
+		get_tree().create_timer(dur + 0.05).timeout.connect(Callable(p, "queue_free"))
