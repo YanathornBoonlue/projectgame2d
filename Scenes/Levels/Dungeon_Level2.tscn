@@ -18599,4 +18599,4 @@ scale = Vector2(0.7, 0.7)
 script = ExtResource("12_opf0e")
 
 [node name="CharacterBody2D" parent="." instance=ExtResource("13_opf0e")]
-position = Vector2(1571, 612)
+position = Vector2(1680, 213)
