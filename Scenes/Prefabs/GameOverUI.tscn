@@ -1,0 +1,17 @@
+[gd_scene load_steps=2 format=3 uid="uid://devbm7s0l82mv"]
+
+[ext_resource type="Script" uid="uid://c47jkh2m3uqc1" path="res://Scripts/GameOverUI.gd" id="1_o515i"]
+
+[node name="GameOverUI" type="CanvasLayer"]
+process_mode = 3
+layer = 100
+script = ExtResource("1_o515i")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+offset_right = 1.0
+offset_bottom = 23.0
+
+[node name="Label" type="Label" parent="CenterContainer"]
+layout_mode = 2

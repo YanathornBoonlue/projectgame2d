@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://cu0wfbrobb1ow"]
+
+[node name="GameOverUI" type="CanvasLayer"]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Label" type="Label" parent="CenterContainer"]
+layout_mode = 2

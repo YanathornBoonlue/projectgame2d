@@ -23,6 +23,7 @@ GameManager="*res://Scripts/GameManager.gd"
 SceneTransition="*res://Scenes/Managers/SceneTransition.tscn"
 AudioManager="*res://Scenes/Managers/AudioManager.tscn"
 MusicManager="*res://Scripts/MusicManager.gd"
+GameOverUI="*res://Scenes/Prefabs/GameOverUI.tscn"
 
 [display]
 

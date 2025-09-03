@@ -79,7 +79,7 @@ func _change_scene_to_file_safe(path: String) -> void:
 
 
 func damage(dm: int) -> void:
-	hp -= dm
+	hp = max(hp - dm, 0)
 	AudioManager.get_node("DeathSfx").play()
 
 
