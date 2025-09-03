@@ -255,7 +255,7 @@ gravity = Vector3(0, 0, 0)
 scale_max = 4.0
 color = Color(0.122709, 0.49318, 5.77569e-07, 1)
 
-[node name="CharacterBody2D" type="CharacterBody2D" groups=["Traps"]]
+[node name="CharacterBody2D" type="CharacterBody2D" groups=["Monster", "Traps"]]
 script = ExtResource("1_4snmv")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]

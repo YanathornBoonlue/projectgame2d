@@ -39,6 +39,7 @@ enabled=PackedStringArray()
 "Traps Dead"=""
 Traps=""
 BossProjectiles=""
+Monster=""
 
 [input]
 
