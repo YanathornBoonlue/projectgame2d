@@ -151,7 +151,7 @@ position = Vector2(3, 8)
 scale = Vector2(0.15, 0.15)
 sprite_frames = SubResource("SpriteFrames_l4gnj")
 animation = &"Fly"
-frame_progress = 0.586656
+frame_progress = 0.748903
 speed_scale = 1.5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -167,6 +167,7 @@ scale = Vector2(2, 2)
 shape = SubResource("CapsuleShape2D_rp6an")
 
 [node name="HeadArea" type="Area2D" parent="."]
+visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HeadArea"]
 position = Vector2(0, -13)

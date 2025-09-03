@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://b1r7aud6yuc57"]
+[gd_scene load_steps=19 format=3 uid="uid://b1r7aud6yuc57"]
 
 [ext_resource type="PackedScene" uid="uid://cyti38f0lagf2" path="res://Scenes/Prefabs/LevelFinishDoor.tscn" id="1_ew58k"]
 [ext_resource type="PackedScene" uid="uid://bhjmohssyfuq2" path="res://Scenes/Levels/Dungeon_Level3.tscn" id="2_5dxbh"]
@@ -12,6 +12,7 @@
 [ext_resource type="Script" uid="uid://b3otwjimxlk6l" path="res://Scripts/GameManager.gd" id="12_h66k1"]
 [ext_resource type="Script" uid="uid://d2v4tysqylthr" path="res://Scripts/item.gd" id="12_opf0e"]
 [ext_resource type="Script" uid="uid://b4cw5w8ycec5t" path="res://Scripts/GameUI.gd" id="13_a68ga"]
+[ext_resource type="PackedScene" uid="uid://sl3rawaxpq0l" path="res://Scenes/Prefabs/monster.tscn" id="13_opf0e"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_gs0qk"]
 texture = ExtResource("5_e55m0")
@@ -18596,3 +18597,6 @@ script = ExtResource("12_opf0e")
 position = Vector2(3255, 1044)
 scale = Vector2(0.7, 0.7)
 script = ExtResource("12_opf0e")
+
+[node name="CharacterBody2D" parent="." instance=ExtResource("13_opf0e")]
+position = Vector2(1571, 612)
