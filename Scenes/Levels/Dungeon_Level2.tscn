@@ -18600,3 +18600,9 @@ script = ExtResource("12_opf0e")
 
 [node name="CharacterBody2D" parent="." instance=ExtResource("13_opf0e")]
 position = Vector2(1680, 213)
+
+[node name="CharacterBody2D2" parent="." instance=ExtResource("13_opf0e")]
+position = Vector2(1202, 609)
+
+[node name="CharacterBody2D3" parent="." instance=ExtResource("13_opf0e")]
+position = Vector2(2045, 612)
