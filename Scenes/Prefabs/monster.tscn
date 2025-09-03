@@ -163,8 +163,8 @@ animations = [{
 size = Vector2(15.55, 15.675)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_rp6an"]
-radius = 7.0
-height = 18.0
+radius = 9.0
+height = 26.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4snmv"]
 size = Vector2(35.25, 7)
@@ -183,14 +183,14 @@ script = ExtResource("1_4snmv")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(1, 6)
-scale = Vector2(0.15, 0.15)
+scale = Vector2(0.2, 0.2)
 sprite_frames = SubResource("SpriteFrames_l4gnj")
 animation = &"Walki"
 speed_scale = 1.5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(4.76837e-07, 8)
-scale = Vector2(2.5, 2.5)
+scale = Vector2(3.5, 3.5)
 shape = SubResource("RectangleShape2D_ljpkj")
 
 [node name="HitArea" type="Area2D" parent="."]
