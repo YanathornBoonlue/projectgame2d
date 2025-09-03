@@ -34,8 +34,8 @@ func _ready() -> void:
 
 	# อายุสูงสุด/หลุดจอ
 	get_tree().create_timer(life_time).timeout.connect(queue_free)
-	if notifier and not notifier.screen_exited.is_connected(_on_screen_exited):
-		notifier.screen_exited.connect(_on_screen_exited)
+	if notifier and not notifier.screen_exited.is_connected(Callable(self, "_on_screen_exited")):
+		notifier.screen_exited.connect(Callable(self, "_on_screen_exited"))
 
 func _physics_process(delta: float) -> void:
 	if _exploding:
@@ -55,27 +55,33 @@ func _on_body_entered(b: Node) -> void:
 	elif b.is_in_group("Boss") and b.has_method("_on_hit_by_player"):
 		b.call("_on_hit_by_player", damage)
 
-	# เล่นเอฟเฟ็กต์ชน แล้วลบ
-	_play_impact_and_free()
-
-func _on_screen_exited() -> void:
-	queue_free()
-
-# ---------- impact ----------
-func _play_impact_and_free() -> void:
 	_exploding = true
+	# สำคัญ: ทำขั้นตอนปิดชน/เล่น Impact แบบ deferred
+	call_deferred("_play_impact_and_free")
 
-	# ปิดชน ป้องกันชนซ้ำ
-	monitoring = false
+func _play_impact_and_free() -> void:
+	# ปิดชนแบบ deferred เพื่อไม่ชนซ้ำและเลี่ยง flush error
+	set_deferred("monitoring", false)
+	set_deferred("collision_layer", 0)
+	set_deferred("collision_mask", 0)
+
 	if colshape:
-		colshape.disabled = true
-	for i in range(1, 33):
-		set_collision_layer_value(i, false)
-		set_collision_mask_value(i, false)
+		colshape.set_deferred("disabled", true)
 
-	# สลับไปเล่นอนิเมชัน Impact (ต้องตั้ง loop = Off)
+	# ถ้ามี Area2D ลูก (เช่น HitArea) ให้ปิดด้วย
+	for c in get_children():
+		if c is Area2D:
+			c.set_deferred("monitoring", false)
+			var cs := (c as Area2D).get_node_or_null("CollisionShape2D")
+			if cs:
+				cs.set_deferred("disabled", true)
+
+	# เล่นอนิเมชัน Impact จนจบแล้วค่อยลบ
 	if anim and anim.sprite_frames and anim.sprite_frames.has_animation("Impact"):
 		anim.play("Impact")
 		await anim.animation_finished
 
+	queue_free()
+
+func _on_screen_exited() -> void:
 	queue_free()

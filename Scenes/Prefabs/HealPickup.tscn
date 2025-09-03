@@ -15,7 +15,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"HealA",
-"speed": 5.0
+"speed": 2.0
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_s6u6g"]
@@ -29,7 +29,7 @@ script = ExtResource("1_s6u6g")
 scale = Vector2(0.065, 0.065)
 sprite_frames = SubResource("SpriteFrames_g6avl")
 animation = &"HealA"
-frame_progress = 0.0342299
+frame_progress = 0.117025
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_s6u6g")

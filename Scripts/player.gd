@@ -103,7 +103,6 @@ func jump() -> void:
 # --------- ANIM / FLIP ---------- #
 func player_animations() -> void:
 	particle_trails.emitting = false
-	
 
 	if is_on_floor():
 		if abs(velocity.x) > 0.0:
