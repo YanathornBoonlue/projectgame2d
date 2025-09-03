@@ -2,7 +2,7 @@ extends Node2D
 
 @export var heal_scene: PackedScene
 @export var spawn_interval: float = 10.0
-@export var per_wave: int = 2
+@export var per_wave: int = 3
 @export var camera_margin: float = 48.0
 
 func _ready() -> void:

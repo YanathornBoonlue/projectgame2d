@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://bhjmohssyfuq2"]
+[gd_scene load_steps=23 format=3 uid="uid://bhjmohssyfuq2"]
 
 [ext_resource type="PackedScene" uid="uid://cyti38f0lagf2" path="res://Scenes/Prefabs/LevelFinishDoor.tscn" id="1_ew58k"]
 [ext_resource type="PackedScene" uid="uid://bjb3dx2x4bocm" path="res://Scenes/Levels/Level_02.tscn" id="2_fitub"]
@@ -9,10 +9,14 @@
 [ext_resource type="Texture2D" uid="uid://dqqbvl6fqnt8l" path="res://Assets/Items/Icon38.png" id="10_p5lga"]
 [ext_resource type="FontFile" uid="uid://qgc4vi5osk7v" path="res://Assets/Fonts/Star Choco.ttf" id="11_2qat5"]
 [ext_resource type="PackedScene" uid="uid://bgn4wbc60tls1" path="res://Scenes/Prefabs/Boss.tscn" id="11_24mhj"]
+[ext_resource type="Texture2D" uid="uid://cb1p3ohojpsmg" path="res://Assets/Textures/HPbarUnder.png" id="11_nq73x"]
+[ext_resource type="Texture2D" uid="uid://is5apa0vyjh0" path="res://Assets/Textures/HPbarProgress.png" id="11_p5lga"]
 [ext_resource type="Script" uid="uid://b3otwjimxlk6l" path="res://Scripts/GameManager.gd" id="12_h66k1"]
 [ext_resource type="Script" uid="uid://041h3vfckn6e" path="res://Scripts/heal_spawner.gd" id="12_xaqwk"]
 [ext_resource type="Script" uid="uid://b4cw5w8ycec5t" path="res://Scripts/GameUI.gd" id="13_a68ga"]
 [ext_resource type="PackedScene" uid="uid://c73ga0lb6j0lg" path="res://Scenes/Prefabs/HealPickup.tscn" id="13_p5lga"]
+[ext_resource type="PackedScene" uid="uid://7qn8c2oocssd" path="res://Scenes/Prefabs/item.tscn" id="16_cir1x"]
+[ext_resource type="Script" uid="uid://d2v4tysqylthr" path="res://Scripts/item.gd" id="17_7c0kw"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_gs0qk"]
 texture = ExtResource("5_e55m0")
@@ -18459,12 +18463,6 @@ tile_size = Vector2i(64, 64)
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_rndpx")
 
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_24mhj"]
-load_path = "res://.godot/imported/HPbarUnder.png-6f0f1ff26b9b8f3d81c71c01a7128c73.ctex"
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_xaqwk"]
-load_path = "res://.godot/imported/HPbarProgress.png-225325c044e86bdb84ce1dbbbe3b434b.ctex"
-
 [node name="Level_03" type="Node2D"]
 light_mask = 8
 visibility_layer = 2
@@ -18621,18 +18619,35 @@ offset_right = 1179.0
 offset_bottom = 290.0
 grow_horizontal = 2
 scale = Vector2(0.281405, 0.244012)
-max_value = 500.0
+max_value = 2500.0
 fill_mode = 1
 nine_patch_stretch = true
-texture_under = SubResource("CompressedTexture2D_24mhj")
-texture_progress = SubResource("CompressedTexture2D_xaqwk")
+texture_under = ExtResource("11_nq73x")
+texture_progress = ExtResource("11_p5lga")
+metadata/_edit_lock_ = true
 
 [node name="Boss" parent="." groups=["Traps"] instance=ExtResource("11_24mhj")]
 position = Vector2(1391, 700)
 scale = Vector2(0.7, 0.604)
 collision_layer = 1
 attack_interval = 2.5
+purple_cast_sfx = null
+skull_cast_sfx = null
+dead_cast_sfx = null
 
 [node name="HealSpawner" type="Node2D" parent="."]
 script = ExtResource("12_xaqwk")
 heal_scene = ExtResource("13_p5lga")
+
+[node name="Items" type="Node2D" parent="."]
+position = Vector2(-1, 0)
+
+[node name="item" parent="Items" instance=ExtResource("16_cir1x")]
+position = Vector2(1446, -1.99999)
+scale = Vector2(0.7, 0.7)
+script = ExtResource("17_7c0kw")
+
+[node name="item2" parent="Items" instance=ExtResource("16_cir1x")]
+position = Vector2(1300, -4.76837e-07)
+scale = Vector2(0.7, 0.7)
+script = ExtResource("17_7c0kw")

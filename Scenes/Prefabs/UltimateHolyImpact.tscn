@@ -1,0 +1,140 @@
+[gd_scene load_steps=21 format=3 uid="uid://hn68lto51mi3"]
+
+[ext_resource type="Script" uid="uid://fby21fqiildj" path="res://Scripts/UltimateHolyImpact.gd" id="1_l3gmm"]
+[ext_resource type="Texture2D" uid="uid://cvtt4xb3ipdnx" path="res://Assets/Textures/Holy VFX 02.png" id="2_mli7g"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fap7c"]
+atlas = ExtResource("2_mli7g")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ob2h6"]
+atlas = ExtResource("2_mli7g")
+region = Rect2(48, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3fct1"]
+atlas = ExtResource("2_mli7g")
+region = Rect2(96, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ls5mx"]
+atlas = ExtResource("2_mli7g")
+region = Rect2(144, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vaepg"]
+atlas = ExtResource("2_mli7g")
+region = Rect2(192, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wer7x"]
+atlas = ExtResource("2_mli7g")
+region = Rect2(240, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ifp1i"]
+atlas = ExtResource("2_mli7g")
+region = Rect2(288, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dkrbu"]
+atlas = ExtResource("2_mli7g")
+region = Rect2(336, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xbryo"]
+atlas = ExtResource("2_mli7g")
+region = Rect2(384, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bq8w6"]
+atlas = ExtResource("2_mli7g")
+region = Rect2(432, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rospq"]
+atlas = ExtResource("2_mli7g")
+region = Rect2(480, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eyblm"]
+atlas = ExtResource("2_mli7g")
+region = Rect2(528, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hs5dx"]
+atlas = ExtResource("2_mli7g")
+region = Rect2(576, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v4qqy"]
+atlas = ExtResource("2_mli7g")
+region = Rect2(624, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lbneb"]
+atlas = ExtResource("2_mli7g")
+region = Rect2(672, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gs52g"]
+atlas = ExtResource("2_mli7g")
+region = Rect2(720, 0, 48, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ggavs"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fap7c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ob2h6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3fct1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ls5mx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vaepg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wer7x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ifp1i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dkrbu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xbryo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bq8w6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rospq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eyblm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hs5dx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v4qqy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lbneb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gs52g")
+}],
+"loop": true,
+"name": &"Impact",
+"speed": 8.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7suyf"]
+size = Vector2(29, 45)
+
+[node name="UltimateHolyImpact" type="Area2D"]
+scale = Vector2(7, 7)
+script = ExtResource("1_l3gmm")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_ggavs")
+animation = &"Impact"
+frame_progress = 0.838355
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, 1.5)
+shape = SubResource("RectangleShape2D_7suyf")

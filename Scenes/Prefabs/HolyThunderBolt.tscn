@@ -1,0 +1,161 @@
+[gd_scene load_steps=24 format=3 uid="uid://cd0cqsr6mjm52"]
+
+[ext_resource type="Script" uid="uid://dmxqw7g2hc0w6" path="res://Scripts/HolyThunderBolt.gd" id="1_hrpyv"]
+[ext_resource type="Texture2D" uid="uid://cohqsvee0102v" path="res://Assets/Textures/Holy VFX 01 Initial.png" id="2_rmkfb"]
+[ext_resource type="Texture2D" uid="uid://b7ntx37o54kx5" path="res://Assets/Textures/Holy VFX 01 Repeatable.png" id="3_rbeaw"]
+[ext_resource type="Texture2D" uid="uid://nk8r4fcl11bp" path="res://Assets/Textures/Holy VFX 01 Impact.png" id="4_rmkfb"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sj2km"]
+atlas = ExtResource("2_rmkfb")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_smsu2"]
+atlas = ExtResource("2_rmkfb")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bltsu"]
+atlas = ExtResource("3_rbeaw")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0c1mf"]
+atlas = ExtResource("3_rbeaw")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bk4oo"]
+atlas = ExtResource("3_rbeaw")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r0aer"]
+atlas = ExtResource("3_rbeaw")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h28fv"]
+atlas = ExtResource("3_rbeaw")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_586xr"]
+atlas = ExtResource("3_rbeaw")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aqclr"]
+atlas = ExtResource("3_rbeaw")
+region = Rect2(192, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w4drr"]
+atlas = ExtResource("3_rbeaw")
+region = Rect2(224, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rbeaw"]
+atlas = ExtResource("4_rmkfb")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d5l6y"]
+atlas = ExtResource("4_rmkfb")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jjynw"]
+atlas = ExtResource("4_rmkfb")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xtycl"]
+atlas = ExtResource("4_rmkfb")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n3fov"]
+atlas = ExtResource("4_rmkfb")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_utas2"]
+atlas = ExtResource("4_rmkfb")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1hf4c"]
+atlas = ExtResource("4_rmkfb")
+region = Rect2(192, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_d5l6y"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sj2km")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_smsu2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bltsu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0c1mf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bk4oo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r0aer")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h28fv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_586xr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_aqclr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w4drr")
+}],
+"loop": true,
+"name": &"Bolt",
+"speed": 7.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rbeaw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d5l6y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jjynw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xtycl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n3fov")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_utas2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1hf4c")
+}],
+"loop": true,
+"name": &"Impact",
+"speed": 8.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_jjynw"]
+radius = 6.0
+height = 26.0
+
+[node name="HolyThunderBolt" type="Area2D"]
+script = ExtResource("1_hrpyv")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_d5l6y")
+animation = &"Impact"
+frame_progress = 0.897458
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(3, 0)
+rotation = -1.5708
+shape = SubResource("CapsuleShape2D_jjynw")
+metadata/_edit_lock_ = true
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+position = Vector2(3, 4.17233e-07)
+scale = Vector2(1.3, 0.6)

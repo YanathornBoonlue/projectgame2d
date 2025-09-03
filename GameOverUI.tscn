@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://cu0wfbrobb1ow"]
+[gd_scene load_steps=0 format=3 uid="uid://cu0wfbrobb1ow"]
 
 [node name="GameOverUI" type="CanvasLayer"]
 
