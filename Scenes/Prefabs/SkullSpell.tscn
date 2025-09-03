@@ -85,7 +85,8 @@ animations = [{
 radius = 7.0
 height = 20.0
 
-[node name="SkullSpell" type="RigidBody2D"]
+[node name="SkullSpell" type="RigidBody2D" groups=["BossProjectiles"]]
+collision_layer = 8
 script = ExtResource("1_nvjmj")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]

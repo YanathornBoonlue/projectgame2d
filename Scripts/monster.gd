@@ -49,12 +49,12 @@ func _process(delta: float) -> void:
 
 func _on_hit_area_body_entered(body: Node2D) -> void:
 	if alive and !just_spawned:
-		GameManager.damage(10)
+		GameManager.damage(20)
 		#death()
 
 func _on_head_area_body_entered(body: Node2D) -> void:
 	if alive and !just_spawned and body.is_in_group("Player"):
-		GameManager.damage(10)
+		GameManager.damage(20)
 		#death()
 		if body.has_method("bounce"):
 			body.bounce()

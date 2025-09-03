@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://0y3nblokrvjy"]
 
-[ext_resource type="Script" path="res://Scripts/Key.gd" id="1_0q4ug"]
+[ext_resource type="Script" uid="uid://c6q3iedniqkvh" path="res://Scripts/Key.gd" id="1_0q4ug"]
 [ext_resource type="Texture2D" uid="uid://y7t0acrynk23" path="res://Assets/Textures/key1.png" id="2_e1eu4"]
 [ext_resource type="AudioStream" uid="uid://bj0dixy6jaqu" path="res://Assets/Sound/FX/pickup_key.wav" id="3_e1eu4"]
 

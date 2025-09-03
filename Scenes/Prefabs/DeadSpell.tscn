@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://d0j0q1r6p6njt" path="res://Assets/Textures/Dark VFX 2 (48x64).png" id="2_7b7kq"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_pxcsk"]
-radius = 12.0
+radius = 20.0
 height = 44.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_d4yps"]
@@ -127,11 +127,12 @@ animations = [{
 "speed": 10.0
 }]
 
-[node name="DeadSpell" type="Area2D"]
+[node name="DeadSpell" type="Area2D" groups=["BossProjectiles"]]
+collision_layer = 8
 script = ExtResource("1_1igtq")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 10)
+position = Vector2(0, 5)
 shape = SubResource("CapsuleShape2D_pxcsk")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]

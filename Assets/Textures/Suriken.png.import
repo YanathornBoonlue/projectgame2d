@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cb1p3ohojpsmg"
-path="res://.godot/imported/HPbarUnder.png-6f0f1ff26b9b8f3d81c71c01a7128c73.ctex"
+uid="uid://ul1sj6oh8qok"
+path="res://.godot/imported/Suriken.png-c156162a1de11aa6430fb70a8b54fdc5.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Textures/HPbarUnder.png"
-dest_files=["res://.godot/imported/HPbarUnder.png-6f0f1ff26b9b8f3d81c71c01a7128c73.ctex"]
+source_file="res://Assets/Textures/Suriken.png"
+dest_files=["res://.godot/imported/Suriken.png-c156162a1de11aa6430fb70a8b54fdc5.ctex"]
 
 [params]
 
