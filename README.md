@@ -1,7 +1,13 @@
-# PLATFORMER 2D STARTER BY GAMES2PLAY STUDIOS
+โครงงาน Game 2D วิชา CP352203-Computer Game Development   ภาคการศึกษาต้น ปีการศึกษา 2568
 
-This starter kit includes all the essential mechanics for your 2d platformer game. Using this kit,
-you will be able to make your own 2d platformer in no time.
+ชื่อเกม :  The Blob Adventure
+จัดทำโดย : 
+
+663380033-8  นายญาณาธร บุญลือ   สาขาปัญญาประดิษฐ์
+663380306-9  นายเอกราช คำภู    สาขาปัญญาประดิษฐ์
+663380275-4  นายธิบดินทร์ อินทร   สาขาปัญญาประดิษฐ์
+663380276-2  นายธิปไตย มะลิมา   สาขาปัญญาประดิษฐ์
+
 
 **This Kit Includes:**
 - Juicy Platformer Controller
