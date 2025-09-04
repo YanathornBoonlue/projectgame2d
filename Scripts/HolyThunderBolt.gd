@@ -1,7 +1,7 @@
 extends Area2D
 
 @export var speed: float = 900.0
-@export var damage: int = 10
+@export var damage: int = 50
 @export var life_time: float = 1.8
 @export var align_rotation: bool = true
 var direction: int = 1

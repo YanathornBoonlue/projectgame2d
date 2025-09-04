@@ -11,19 +11,31 @@ var _oneshot: AudioStreamPlayer = null
 
 func _enter_tree() -> void:
 	process_mode = Node.PROCESS_MODE_ALWAYS
-	layer = 999                                      # อยู่บนสุด
+	layer = 999
 	_ensure_nodes()
+
+	# อัปเดตเมื่อขนาดหน้าจอ/viewport เปลี่ยน (เช่น ผู้ใช้ย่อ/ขยายหน้าต่างเว็บ)
+	var vp := get_viewport()
+	if vp and not vp.size_changed.is_connected(_on_viewport_resized):
+		vp.size_changed.connect(_on_viewport_resized)
 
 func _ensure_nodes() -> void:
 	image = get_node_or_null("Image") as TextureRect
 	if image == null:
 		image = TextureRect.new()
 		image.name = "Image"
-		image.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_COVERED
 		add_child(image)
+	# ให้ภาพครอบเต็มและคงสัดส่วน (แนว cover)
+	image.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_COVERED
 	image.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+	image.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	image.modulate = Color(1, 1, 1, 0)
 	visible = false
+
+func _on_viewport_resized() -> void:
+	# ย้ำ anchors เต็มจอทุกครั้งที่ viewport เปลี่ยนขนาด
+	if is_instance_valid(image):
+		image.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
 
 # ให้เกมเรียกเปลี่ยนภาพเอง
 func set_image(tex: Texture2D) -> void:
@@ -37,10 +49,10 @@ func show_you_win(new_next: PackedScene = null) -> void:
 	if new_next != null:
 		next_scene = new_next
 
-	# 1) หยุด BGM ของด่านทันที (พยายามเรียก MusicManager ก่อน ถ้าไม่มีค่อยลด bus)
+	# 1) หยุด BGM ด่าน
 	_stop_stage_bgm()
 
-	# 2) เล่น SFX (one-shot object จะถูกลบทิ้งเอง)
+	# 2) เล่น SFX (one-shot)
 	_play_oneshot()
 
 	# 3) เฟดอินรูป + ค้างไว้
@@ -68,9 +80,6 @@ func show_you_win(new_next: PackedScene = null) -> void:
 		get_tree().change_scene_to_packed(next_scene)
 	else:
 		get_tree().change_scene_to_file("res://Scenes/Prefabs/menu.tscn")
-	# หมายเหตุ: ไม่ต้องเรียก show_you_win อีกที่เมนู จะไม่เล่นซ้ำเพราะ _showing ป้องกันแล้ว
-	# และเรา kill one-shot ไปแล้วจึงไม่มีเสียงค้าง/เล่นซ้ำ
-	
 
 # -------------------- audio helpers --------------------
 
@@ -80,7 +89,10 @@ func _play_oneshot() -> void:
 		return
 	var p := AudioStreamPlayer.new()
 	_oneshot = p
-	p.bus = "SFX"
+	var bus_name := "SFX"
+	if AudioServer.get_bus_index(bus_name) < 0:
+		bus_name = "Master" # Fallback กัน error บนเว็บ
+	p.bus = bus_name
 	p.stream = sfx_stream
 	p.volume_db = sfx_volume_db
 	add_child(p)
@@ -93,16 +105,14 @@ func _cleanup_oneshot() -> void:
 	_oneshot = null
 
 func _stop_stage_bgm() -> void:
-	# ถ้ามี MusicManager (autoload ก่อนหน้า) ให้สั่งเฟดและหยุด
+	# ถ้ามี MusicManager (autoload) ให้สั่งเฟด/หยุด
 	var mm := get_node_or_null("/root/MusicManager")
 	if mm != null:
 		if mm.has_method("fade_out_and_stop"):
-			mm.call("fade_out_and_stop", 0.6)
-			return
+			mm.call("fade_out_and_stop", 0.6); return
 		if mm.has_method("_stop_bgm"):
-			mm.call("_stop_bgm")
-			return
-	# ถ้าไม่มี MusicManager: ลด volume ที่ bus "Music" ลงชั่วคราว
+			mm.call("_stop_bgm"); return
+	# ถ้าไม่มี MusicManager: ลด volume ที่ bus "Music"
 	var idx: int = AudioServer.get_bus_index("Music")
 	if idx >= 0:
 		var from_db: float = AudioServer.get_bus_volume_db(idx)

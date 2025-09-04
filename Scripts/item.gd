@@ -3,8 +3,12 @@ extends Area2D
 @export var amplitude: float = 4.0
 @export var frequency: float = 5.0
 @export var anim_name: String = "Effect"
-@export var charges_granted: int = 1      # จำนวนชาร์จอัลติที่ให้
-@export var score_reward: int = 1         # ✅ ให้สกอร์กี่แต้ม (0 = ไม่ให้)
+@export var charges_granted: int = 1
+@export var score_reward: int = 1
+
+# ★ เพิ่ม: ตั้งเสียงเก็บทาง Inspector
+@export var pickup_sfx: AudioStream
+@export var pickup_sfx_volume_db: float = -6.0
 
 var t: float = 0.0
 var start_pos: Vector2 = Vector2.ZERO
@@ -14,11 +18,8 @@ var _consumed: bool = false
 
 func _ready() -> void:
 	start_pos = position
-
 	monitoring = true
 	monitorable = true
-
-	# ตรวจชนเฉพาะ Player
 	for i in range(1, 33):
 		set_collision_mask_value(i, false)
 	set_collision_mask_value(1, true) # Player
@@ -42,24 +43,42 @@ func _on_body_entered(body: Node) -> void:
 	if not body.is_in_group("Player"): return
 
 	_consumed = true
-	# กันยิงซ้ำ
 	set_deferred("monitoring", false)
 	set_deferred("collision_mask", 0)
 	var shp := get_node_or_null("CollisionShape2D")
 	if shp is CollisionShape2D:
 		(shp as CollisionShape2D).set_deferred("disabled", true)
 
-	# ✅ เพิ่มชาร์จอัลติ (ถ้าใช้ระบบนี้)
 	if charges_granted > 0:
 		GameManager.add_ultimate_charge(charges_granted)
 
-	# ✅ เพิ่มสกอร์ตามที่กำหนด (GameManager.add_score() = +1 ต่อครั้ง)
 	if score_reward > 0:
 		for i in range(score_reward):
 			GameManager.add_score()
 
-	# เอฟเฟ็กต์เก็บ
+	# ★ เล่นเสียงเก็บ
+	_play_pickup_sfx()
+
 	var tw := create_tween()
 	tw.tween_property(self, "scale", Vector2.ZERO, 0.1)
 	await tw.finished
 	queue_free()
+
+# ★ ฟังก์ชันเล่นเสียงแบบ one-shot (อยู่ได้นอกตัวไอเท็ม)
+func _play_pickup_sfx() -> void:
+	if pickup_sfx == null: return
+	var p := AudioStreamPlayer2D.new()
+	p.stream = pickup_sfx
+	p.volume_db = pickup_sfx_volume_db
+	var bus := "SFX"
+	if AudioServer.get_bus_index(bus) < 0:
+		bus = "Master"
+	p.bus = bus
+	p.global_position = global_position
+	get_tree().current_scene.add_child(p)
+	p.play()
+
+	var dur := 1.0
+	if pickup_sfx.has_method("get_length"):
+		dur = max(0.1, pickup_sfx.get_length())
+	get_tree().create_timer(dur + 0.1).timeout.connect(Callable(p, "queue_free"))

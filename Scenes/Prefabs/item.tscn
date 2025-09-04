@@ -1,6 +1,8 @@
-[gd_scene load_steps=16 format=3 uid="uid://7qn8c2oocssd"]
+[gd_scene load_steps=18 format=3 uid="uid://7qn8c2oocssd"]
 
 [ext_resource type="Texture2D" uid="uid://dqqbvl6fqnt8l" path="res://Assets/Items/Icon38.png" id="1_8n5ru"]
+[ext_resource type="Script" uid="uid://d2v4tysqylthr" path="res://Scripts/item.gd" id="1_mydh3"]
+[ext_resource type="AudioStream" uid="uid://dxxdid8as84q" path="res://Assets/Sound/FX/Pickup.wav" id="2_i2l4l"]
 [ext_resource type="Texture2D" uid="uid://nk8r4fcl11bp" path="res://Assets/Textures/Holy VFX 01 Impact.png" id="2_iiaa8"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_akoh1"]
@@ -93,6 +95,9 @@ animations = [{
 }]
 
 [node name="item" type="Area2D" groups=["items"]]
+script = ExtResource("1_mydh3")
+pickup_sfx = ExtResource("2_i2l4l")
+pickup_sfx_volume_db = 1.0
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(-3.5, -2)

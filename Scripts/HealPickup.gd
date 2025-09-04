@@ -1,12 +1,15 @@
-# res://Scripts/HealPickup.gd
 extends Area2D
 
-@export var heal_amount: int = 20         # เพิ่ม HP
-@export var life_time: float = 5.0        # อยู่กี่วิถ้าไม่เก็บแล้วหาย
-@export var fall_time: float = 0.35       # เวลาตกลงถึงพื้น (tween)
-@export var hover_amp: float = 6.0        # ระยะเด้ง ๆ บนพื้น
-@export var hover_freq: float = 3.0       # ความถี่เด้ง
-@export var ground_snap_margin: float = 6.0  # เว้นจากพื้นเล็กน้อย
+@export var heal_amount: int = 20
+@export var life_time: float = 5.0
+@export var fall_time: float = 0.35
+@export var hover_amp: float = 6.0
+@export var hover_freq: float = 3.0
+@export var ground_snap_margin: float = 6.0
+
+# ★ เพิ่ม: ตั้งเสียง Pickup.wav ที่นี่
+@export var pickup_sfx: AudioStream
+@export var pickup_sfx_volume_db: float = -6.0
 
 @onready var anim: AnimatedSprite2D = $AnimatedSprite2D
 
@@ -17,33 +20,22 @@ var _alive: bool = true
 func _ready() -> void:
 	randomize()
 	add_to_group("Pickups")
-
-	# ตั้ง Mask ให้ตรวจเฉพาะ Player (บิต 1)
 	for i: int in range(1, 33):
 		set_collision_layer_value(i, false)
 		set_collision_mask_value(i, false)
 	set_collision_mask_value(1, true) # Player
 
-	# เปิดตรวจชน
 	monitoring = true
 	monitorable = true
 	if not body_entered.is_connected(_on_body_entered):
 		body_entered.connect(_on_body_entered)
 
-	# ให้แน่ใจว่ามี CollisionShape2D
 	_ensure_shape()
-
-	# สุ่มเล่นแอนิเมชันจากคลิปที่มีอยู่ (เช่น "HealA", "HealB")
 	_play_random_anim()
 
-	# ตกลงสู่พื้น
 	await _drop_to_ground()
-
-	# เริ่ม hover
 	_base_y = position.y
 	set_process(true)
-
-	# ตั้งหมดอายุ (ถ้าไม่เก็บ)
 	get_tree().create_timer(life_time).timeout.connect(_expire_and_free)
 
 func _process(delta: float) -> void:
@@ -51,26 +43,21 @@ func _process(delta: float) -> void:
 	position.y = _base_y + sin(_t * TAU * hover_freq) * hover_amp
 
 func _on_body_entered(b: Node) -> void:
-	if not _alive:
-		return
+	if not _alive: return
 	if b.is_in_group("Player"):
 		_alive = false
-		# เพิ่ม HP (คาปไว้ที่ 100)
 		GameManager.hp = min(GameManager.hp + heal_amount, 100)
-		# เล่นเสียง (ใช้ coin_pickup ถ้ามี)
-		if Engine.has_singleton("AudioServer"):
-			if "AudioManager" in ProjectSettings.get_setting("autoloads", {}):
-				if AudioManager.has_node("CoinPickup"):
-					AudioManager.coin_pickup_sfx.play()
-		# เอฟเฟกต์เล็กน้อยแล้วหาย
+
+		# ★ เล่นเสียง Pickup.wav
+		_play_pickup_sfx()
+
 		var tw: Tween = create_tween()
 		tw.tween_property(self, "scale", Vector2(0.0, 0.0), 0.15)
 		await tw.finished
 		queue_free()
 
 func _expire_and_free() -> void:
-	if not _alive:
-		return
+	if not _alive: return
 	_alive = false
 	var tw: Tween = create_tween()
 	tw.tween_property(self, "modulate:a", 0.0, 0.2)
@@ -90,15 +77,11 @@ func _ensure_shape() -> void:
 	cs.set_deferred("disabled", false)
 
 func _play_random_anim() -> void:
-	if anim == null:
-		return
+	if anim == null: return
 	var frames: SpriteFrames = anim.sprite_frames
-	if frames == null:
-		return
+	if frames == null: return
 	var names := frames.get_animation_names()
-	if names.size() == 0:
-		return
-	# ถ้าคุณตั้งชื่อไว้สองคลิป เช่น HealA/HealB โค้ดนี้จะสุ่มจากทั้งหมดที่มี
+	if names.size() == 0: return
 	var name := names[randi() % names.size()]
 	anim.play(name)
 
@@ -114,5 +97,23 @@ func _drop_to_ground() -> void:
 	var tw: Tween = create_tween()
 	tw.set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
 	tw.tween_property(self, "global_position:y", target_y, fall_time)
+	await tw.finished
 
-	await tw.finished   # ← รอ tween เสร็จ แล้ว “ไม่ต้อง return”
+# ★ one-shot pickup sound
+func _play_pickup_sfx() -> void:
+	if pickup_sfx == null: return
+	var p := AudioStreamPlayer2D.new()
+	p.stream = pickup_sfx
+	p.volume_db = pickup_sfx_volume_db
+	var bus := "SFX"
+	if AudioServer.get_bus_index(bus) < 0:
+		bus = "Master"
+	p.bus = bus
+	p.global_position = global_position
+	get_tree().current_scene.add_child(p)
+	p.play()
+
+	var dur := 1.0
+	if pickup_sfx.has_method("get_length"):
+		dur = max(0.1, pickup_sfx.get_length())
+	get_tree().create_timer(dur + 0.1).timeout.connect(Callable(p, "queue_free"))

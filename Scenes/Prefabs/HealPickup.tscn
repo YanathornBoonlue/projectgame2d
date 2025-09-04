@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://c73ga0lb6j0lg"]
+[gd_scene load_steps=7 format=3 uid="uid://c73ga0lb6j0lg"]
 
 [ext_resource type="Script" uid="uid://g4a2bak3hmoc" path="res://Scripts/HealPickup.gd" id="1_s6u6g"]
+[ext_resource type="AudioStream" uid="uid://dxxdid8as84q" path="res://Assets/Sound/FX/Pickup.wav" id="2_jprqe"]
 [ext_resource type="Texture2D" uid="uid://ek11qxawwk1l" path="res://Assets/Textures/heal.png" id="2_sycin"]
 [ext_resource type="Texture2D" uid="uid://n8y2pyeask3t" path="res://Assets/Textures/healA.png" id="3_jprqe"]
 
@@ -24,6 +25,8 @@ radius = 2.0
 [node name="Node2D" type="Area2D"]
 scale = Vector2(10.78, 10.78)
 script = ExtResource("1_s6u6g")
+pickup_sfx = ExtResource("2_jprqe")
+pickup_sfx_volume_db = 1.0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(0.065, 0.065)
