@@ -11,7 +11,7 @@
 
 663380276-2  นายธิปไตย มะลิมา   สาขาปัญญาประดิษฐ์
 
-ลิ้งค์เอกสาร:
+ลิ้งค์เอกสาร: https://docs.google.com/document/d/1UbwMljGfu7s4DOzzbEM1swLwEZd1_HArT0ps_gsYW_w/edit?usp=drivesdk
 
 ธีม หรือ แนวเกม: ต่อสู้ ผจญภัยในโลกเเฟนตาซี 
 
