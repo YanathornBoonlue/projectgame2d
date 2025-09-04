@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://b1r7aud6yuc57"]
+[gd_scene load_steps=19 format=3 uid="uid://b1r7aud6yuc57"]
 
 [ext_resource type="Script" path="res://Scenes/Levels/dungeon_level_2.gd" id="1_537po"]
 [ext_resource type="PackedScene" uid="uid://cyti38f0lagf2" path="res://Scenes/Prefabs/LevelFinishDoor.tscn" id="1_ew58k"]
@@ -11,7 +11,6 @@
 [ext_resource type="FontFile" uid="uid://qgc4vi5osk7v" path="res://Assets/Fonts/Star Choco.ttf" id="11_2qat5"]
 [ext_resource type="PackedScene" uid="uid://7qn8c2oocssd" path="res://Scenes/Prefabs/item.tscn" id="11_5dxbh"]
 [ext_resource type="Script" uid="uid://b3otwjimxlk6l" path="res://Scripts/GameManager.gd" id="12_h66k1"]
-[ext_resource type="Script" uid="uid://d2v4tysqylthr" path="res://Scripts/item.gd" id="12_opf0e"]
 [ext_resource type="Script" uid="uid://b4cw5w8ycec5t" path="res://Scripts/GameUI.gd" id="13_a68ga"]
 [ext_resource type="PackedScene" uid="uid://sl3rawaxpq0l" path="res://Scenes/Prefabs/monster.tscn" id="13_opf0e"]
 
@@ -18601,12 +18600,10 @@ position = Vector2(-1, 0)
 [node name="item" parent="Items" instance=ExtResource("11_5dxbh")]
 position = Vector2(2237, 84)
 scale = Vector2(0.7, 0.7)
-script = ExtResource("12_opf0e")
 
 [node name="item2" parent="Items" instance=ExtResource("11_5dxbh")]
 position = Vector2(3255, 1044)
 scale = Vector2(0.7, 0.7)
-script = ExtResource("12_opf0e")
 
 [node name="CharacterBody2D" parent="." instance=ExtResource("13_opf0e")]
 position = Vector2(1680, 213)

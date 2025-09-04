@@ -1,6 +1,6 @@
 # Autoload (Singleton)
 extends Node2D
-
+var pending_scene_path: String = ""
 signal ultimate_charges_changed(new_value: int)
 
 # ===== Core stats =====

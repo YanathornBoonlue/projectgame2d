@@ -12,13 +12,13 @@ sfx_stream = ExtResource("4_l5uqf")
 sfx_volume_db = 1.0
 
 [node name="TextureRect" type="TextureRect" parent="."]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -12.0
-offset_top = -77.0
-offset_right = 469.0
-offset_bottom = 299.0
+anchors_preset = -1
+anchor_right = 1.375
+anchor_bottom = 1.367
+offset_left = -4.10959
+offset_top = -46.5753
+offset_right = 55.8903
+offset_bottom = 91.6086
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(1.0031, 0.993479)

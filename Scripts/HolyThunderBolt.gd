@@ -1,7 +1,8 @@
 extends Area2D
 
+@export var impact_sfx_global: bool = true  # true = เล่นแบบไม่ผูกตำแหน่ง
 @export var speed: float = 900.0
-@export var damage: int = 80
+@export var damage: int = 100
 @export var life_time: float = 1.8
 @export var align_rotation: bool = true
 var direction: int = 1
@@ -102,17 +103,38 @@ func _on_screen_exited() -> void:
 func _play_launch_sfx() -> void:
 	if launch_sfx == null:
 		return
-	var p: AudioStreamPlayer2D = AudioStreamPlayer2D.new()
-	p.bus = sfx_bus
-	p.stream = launch_sfx
-	p.volume_db = launch_sfx_volume_db
-	p.global_position = global_position
-	get_tree().current_scene.add_child(p)
-	p.play()
-	if p.has_signal("finished"):
-		p.finished.connect(Callable(p, "queue_free"))
+
+	if impact_sfx_global:
+		# เล่นแบบ "ทั่วแมพ" ไม่ผูกตำแหน่ง → ได้ยินเสมอ
+		var p := AudioStreamPlayer.new()
+		p.bus = sfx_bus
+		p.stream = launch_sfx
+		p.volume_db = launch_sfx_volume_db
+		get_tree().root.add_child(p)  # ไม่ผูกกับโปรเจกไทล์ ป้องกันถูกลบก่อนเสียงจบ
+		p.play()
+		if p.has_signal("finished"):
+			p.finished.connect(Callable(p, "queue_free"), Object.CONNECT_ONE_SHOT)
+		else:
+			var dur := 1.0
+			if p.stream and p.stream.has_method("get_length"):
+				dur = max(0.1, p.stream.get_length())
+			get_tree().create_timer(dur + 0.1).timeout.connect(Callable(p, "queue_free"))
 	else:
-		var dur: float = 1.0
-		if p.stream != null and p.stream.has_method("get_length"):
-			dur = max(0.1, p.stream.get_length())
-		get_tree().create_timer(dur + 0.1).timeout.connect(Callable(p, "queue_free"))
+		# เล่นแบบมีตำแหน่ง แต่ทำให้ไม่ตกเสียงตามระยะ
+		var p2 := AudioStreamPlayer2D.new()
+		p2.bus = sfx_bus
+		p2.stream = launch_sfx
+		p2.volume_db = launch_sfx_volume_db
+		p2.global_position = global_position
+		p2.attenuation = 0.0          # ปิดการลดทอนตามระยะ
+		p2.max_distance = 100000.0    # ระยะได้ยินไกลมาก
+		p2.panning_strength = 0.75    # ปรับบาลานซ์ซ้าย/ขวา (แล้วแต่ชอบ)
+		get_tree().current_scene.add_child(p2)
+		p2.play()
+		if p2.has_signal("finished"):
+			p2.finished.connect(Callable(p2, "queue_free"), Object.CONNECT_ONE_SHOT)
+		else:
+			var dur2 := 1.0
+			if p2.stream and p2.stream.has_method("get_length"):
+				dur2 = max(0.1, p2.stream.get_length())
+			get_tree().create_timer(dur2 + 0.1).timeout.connect(Callable(p2, "queue_free"))
