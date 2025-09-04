@@ -9,7 +9,7 @@ scale = Vector2(0.73, 0.73)
 transform = Transform2D(0.73, 0, 0, 0.73, 0, 0)
 script = ExtResource("1_i6r70")
 sfx_stream = ExtResource("4_l5uqf")
-sfx_volume_db = 5.0
+sfx_volume_db = 1.0
 
 [node name="TextureRect" type="TextureRect" parent="."]
 anchors_preset = 15
@@ -21,6 +21,7 @@ offset_right = 469.0
 offset_bottom = 299.0
 grow_horizontal = 2
 grow_vertical = 2
+scale = Vector2(1.0031, 0.993479)
 mouse_filter = 2
 texture = ExtResource("3_jxe8c")
 

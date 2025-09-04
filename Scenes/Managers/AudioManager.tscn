@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://bssjjygu83iwl"]
+[gd_scene load_steps=7 format=3 uid="uid://bssjjygu83iwl"]
 
 [ext_resource type="Script" uid="uid://mqbw3xkwj5j5" path="res://Scripts/AudioManager.gd" id="1_hp1cr"]
 [ext_resource type="AudioStream" uid="uid://d3ldv4818s140" path="res://Assets/Sound/FX/30_Jump_03.wav" id="2_84782"]
 [ext_resource type="AudioStream" uid="uid://bxwmcyholkbp6" path="res://Assets/Sound/FX/dead.wav" id="2_esrla"]
+[ext_resource type="AudioStream" uid="uid://bj0dixy6jaqu" path="res://Assets/Sound/FX/pickup_key.wav" id="3_y7mjd"]
 [ext_resource type="AudioStream" uid="uid://sw5lmi434qjk" path="res://Assets/Sound/FX/respawn.wav" id="4_y7mjd"]
 [ext_resource type="AudioStream" uid="uid://bpu4lc12ethud" path="res://Assets/Sound/FX/level-complete.wav" id="5_qy2l1"]
 
@@ -14,6 +15,7 @@ stream = ExtResource("2_84782")
 volume_db = 1.5
 
 [node name="CoinPickup" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_y7mjd")
 volume_db = 1.5
 
 [node name="DeathSfx" type="AudioStreamPlayer" parent="."]
