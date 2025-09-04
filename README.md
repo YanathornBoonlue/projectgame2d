@@ -103,7 +103,8 @@ Sprite ก้อนอิฐ มาจาก
 - https://pimen.itch.io/dark-spell-effect
 - https://pimen.itch.io/holy-spell-effect
 - https://devkidd.itch.io/pixel-fire-asset-pack-2
-
+- https://freesound.org/
+- https://pimen.itch.io/dark-spell-effect
 
 
 
