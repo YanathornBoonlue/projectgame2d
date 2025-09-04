@@ -68,8 +68,7 @@ func _ready() -> void:
 	_sfx = get_node_or_null("Sfx") as AudioStreamPlayer
 	if _sfx == null:
 		_sfx = AudioStreamPlayer.new()
-		_sfx.name = "Sfx"
-		_sfx.bus = "UI"       # ถ้าไม่มีบัสชื่อ UI จะเล่นผ่าน Master อัตโนมัติ
+		_sfx.bus = "Sfx"      # ถ้าไม่มีบัสชื่อ UI จะเล่นผ่าน Master อัตโนมัติ
 		add_child(_sfx)
 	_sfx.volume_db = sfx_volume_db
 	_sfx.stream = load(sfx_path)
