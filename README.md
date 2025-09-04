@@ -98,5 +98,10 @@ Game Template มาจาก
 Sprite ก้อนอิฐ มาจาก
 - Brick Pack · Kenney 
 
+เสียงเพลงและเสียงเอฟเฟค
+- https://pixabay.com/music/search/cave/
+- https://www.bfxr.net/
+
+
 
 
