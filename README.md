@@ -81,5 +81,9 @@
 
 - ให้ความเพลิดเพลินและคลายเครียด
 
+Gameplay Ex.VDO  (Link ไป clip vdo)
+https://drive.google.com/file/d/1rT68lMtgEjRrQvdVuLK50MaQKIadtS5P/view?usp=sharing
+
+
 
 
