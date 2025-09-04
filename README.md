@@ -84,6 +84,12 @@
 Gameplay Ex.VDO  (Link ไป clip vdo)
 https://drive.google.com/file/d/1rT68lMtgEjRrQvdVuLK50MaQKIadtS5P/view?usp=sharing
 
+อ้างอิง
+ระบุแหล่งที่มาของ Source Code และ Asset ต่าง ๆ ที่ใช้
+Game Template มาจาก 
+- 2D Platformer Demo - Godot Asset Library 
+Sprite ก้อนอิฐ มาจาก
+- Brick Pack · Kenney 
 
 
 
